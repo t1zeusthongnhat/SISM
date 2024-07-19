@@ -1,0 +1,209 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\ASP.NET_MVC\\StudentManager\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|e:\\asp.net_mvc\\studentmanager\\studentmanager\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|solutionrelative:studentmanager\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|E:\\ASP.NET_MVC\\StudentManager\\studentmanager\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|solutionrelative:studentmanager\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|E:\\ASP.NET_MVC\\StudentManager\\studentmanager\\data\\user.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|solutionrelative:studentmanager\\data\\user.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|E:\\ASP.NET_MVC\\StudentManager\\studentmanager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|solutionrelative:studentmanager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|E:\\ASP.NET_MVC\\StudentManager\\studentmanager\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|solutionrelative:studentmanager\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|E:\\ASP.NET_MVC\\StudentManager\\studentmanager\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|solutionrelative:studentmanager\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|E:\\ASP.NET_MVC\\StudentManager\\studentmanager\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|solutionrelative:studentmanager\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|E:\\ASP.NET_MVC\\StudentManager\\studentmanager\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|solutionrelative:studentmanager\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|E:\\ASP.NET_MVC\\StudentManager\\studentmanager\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|solutionrelative:studentmanager\\views\\login\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|E:\\ASP.NET_MVC\\StudentManager\\studentmanager\\views\\student\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|solutionrelative:studentmanager\\views\\student\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|E:\\ASP.NET_MVC\\StudentManager\\studentmanager\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76BE7F1F-1716-4C72-886B-BB5E27D50406}|StudentManager\\StudentManager.csproj|solutionrelative:studentmanager\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "StudentManager\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "StudentManager\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-30T10:00:09.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "StudentManager\\Views\\_ViewStart.cshtml",
+              "ToolTip": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "StudentManager\\Views\\_ViewStart.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-30T10:00:08.095Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "StudentManager\\Views\\_ViewImports.cshtml",
+              "ToolTip": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "StudentManager\\Views\\_ViewImports.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-30T10:00:05.858Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "StudentManager\\Views\\Home\\Index.cshtml",
+              "ToolTip": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "StudentManager\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-03T13:53:38.366Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "User.cs",
+              "DocumentMoniker": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Models\\User.cs",
+              "RelativeDocumentMoniker": "StudentManager\\Models\\User.cs",
+              "ToolTip": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Models\\User.cs",
+              "RelativeToolTip": "StudentManager\\Models\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T13:42:47.241Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "StudentManager\\Controllers\\HomeController.cs",
+              "ToolTip": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "StudentManager\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAQwA0AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T01:47:19.288Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginController.cs",
+              "DocumentMoniker": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Controllers\\LoginController.cs",
+              "RelativeDocumentMoniker": "StudentManager\\Controllers\\LoginController.cs",
+              "ToolTip": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Controllers\\LoginController.cs",
+              "RelativeToolTip": "StudentManager\\Controllers\\LoginController.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABcAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T00:21:51.473Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "user.json",
+              "DocumentMoniker": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Data\\user.json",
+              "RelativeDocumentMoniker": "StudentManager\\Data\\user.json",
+              "ToolTip": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Data\\user.json",
+              "RelativeToolTip": "StudentManager\\Data\\user.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-03T13:43:13.855Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Program.cs",
+              "RelativeDocumentMoniker": "StudentManager\\Program.cs",
+              "ToolTip": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Program.cs",
+              "RelativeToolTip": "StudentManager\\Program.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABMAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-30T10:02:10.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Views\\Login\\Index.cshtml",
+              "RelativeDocumentMoniker": "StudentManager\\Views\\Login\\Index.cshtml",
+              "ToolTip": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Views\\Login\\Index.cshtml",
+              "RelativeToolTip": "StudentManager\\Views\\Login\\Index.cshtml",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAACAAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-03T13:45:41.599Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Views\\Student\\Index.cshtml",
+              "RelativeDocumentMoniker": "StudentManager\\Views\\Student\\Index.cshtml",
+              "ToolTip": "E:\\ASP.NET_MVC\\StudentManager\\StudentManager\\Views\\Student\\Index.cshtml",
+              "RelativeToolTip": "StudentManager\\Views\\Student\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-03T11:36:44.12Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
