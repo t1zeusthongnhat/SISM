@@ -34,3 +34,4 @@ E:\ASP.NET_MVC\StudentManager\StudentManager\bin\Debug\net8.0\System.Text.Json.d
 E:\ASP.NET_MVC\StudentManager\StudentManager\obj\Debug\net8.0\StudentManager.csproj.AssemblyReference.cache
 E:\ASP.NET_MVC\StudentManager\StudentManager\obj\Debug\net8.0\StudentM.8DAA3114.Up2Date
 E:\ASP.NET_MVC\StudentManager\StudentManager\bin\Debug\net8.0\Microsoft.Net.Http.Headers.dll
+E:\ASP.NET_MVC\StudentManager\StudentManager\obj\Debug\net8.0\StudentManager.sourcelink.json

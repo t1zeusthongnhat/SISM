@@ -3,41 +3,35 @@ using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using StudentManager.Models;
+using StudentManager.Service.IService;
 
 namespace StudentManager.Controllers
 {
     public class LoginController : Controller
     {
 
+       
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly string _filePath = Path.Combine(Directory.GetCurrentDirectory(), "Data", "user.json");
-        private const string SessionKeyName = "UserName";
+        private readonly IUserService _userService;
 
-        public LoginController(IHttpContextAccessor httpContextAccessor)
+        public LoginController(IUserService userService, IHttpContextAccessor httpContextAccessor)
         {
+            _userService = userService;
             _httpContextAccessor = httpContextAccessor;
         }
-        private List<User> GetAllUsers()
-        {
-            var jsonData = System.IO.File.ReadAllText(_filePath);
-            return JsonConvert.DeserializeObject<List<User>>(jsonData);
-        }
+
         public IActionResult Index()
         {
             return View();
         }
 
-
         [HttpPost]
         public IActionResult Index(string username, string password)
         {
-            var users = GetAllUsers();
-            var user = users.FirstOrDefault(u => u.Username == username && u.Password == password);
+            var user = _userService.GetUserByUsernameAndPassword(username, password);
 
             if (user != null)
             {
-
-                _httpContextAccessor.HttpContext.Session.SetString(SessionKeyName, user.Username); // Lưu email vào Session
                 return RedirectToAction("Index", "Home");
             }
             return View();
