@@ -4,5 +4,10 @@
     "Username": "duonghoang",
     "Email": "acekem4k2@gmail.com",
     "Password": "1"
-  }
+  }, {
+    "Id": 2,
+    "Username": "huynd",
+    "Email": "huynd@gmail.com",
+    "Password": "1"
+  },
 ]

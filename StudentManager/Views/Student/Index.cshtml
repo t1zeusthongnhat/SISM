@@ -18,28 +18,17 @@
         </li>
         <li class="active">
             <a  asp-controller="Student" asp-action="Index">
-                <i class='bx bxs-shopping-bag-alt'></i>
-                <span class="text">My Store</span>
+                <i class='bx bxs-user'></i>
+                <span class="text">Student Management</span>
             </a>
         </li>
         <li>
-            <a >
-                <i class='bx bxs-doughnut-chart'></i>
-                <span class="text">Analytics</span>
+            <a asp-controller="Course" asp-action="Index">
+                <i class='bx bxs-book'></i>
+                <span class="text">Course Management</span>
             </a>
         </li>
-        <li>
-            <a >
-                <i class='bx bxs-message-dots'></i>
-                <span class="text">Message</span>
-            </a>
-        </li>
-        <li>
-            <a >
-                <i class='bx bxs-group'></i>
-                <span class="text">Team</span>
-            </a>
-        </li>
+       
     </ul>
     <ul class="side-menu">
         <li>
@@ -49,7 +38,7 @@
             </a>
         </li>
         <li>
-            <a class="logout">
+            <a class="logout" asp-controller="Login" asp-action="Index">
                 <i class='bx bxs-log-out-circle'></i>
                 <span class="text">Logout</span>
             </a>
@@ -90,17 +79,137 @@
                     </li>
                     <li><i class='bx bx-chevron-right'></i></li>
                     <li>
-                        <a class="active" href="#">My Store</a>
+                        <a class="active" href="#">Student Management</a>
                     </li>
                 </ul>
             </div>
-            <a href="#" class="btn-download">
-                <i class='bx bxs-cloud-download'></i>
-                <span class="text">Download PDF</span>
-            </a>
+
+            <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#addnewUser">Add new</button>
+        </div>
+        <!-- Modal adđ new user -->
+        <div class="modal fade" id="addnewUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">FullName</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col" colspan="2">Action</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Duong </td>
+                        <td>duonghoang@gmail.com</td>
+                        <td>Ha Noi</td>
+                        <td>0123456789</td>
+                        <td>Male</td>
+                        <td><button class="btn btn-primary">Edit</button>
+                        <button class="btn btn-warning">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Huy</td>
+                        <td>huynd@gmail.com</td>
+                        <td>Ha Noi</td>
+                        <td>0123456789</td>
+                        <td>Male</td>
+                        <td>
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-warning">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Thanh</td>
+                        <td>thanhnc@gmail.com</td>
+                        <td>Ha Noi</td>
+                        <td>0123456789</td>
+                        <td>Male</td>
+                        <td>
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-warning">Delete</button>
+                        </td>
+                    </tr>  <tr>
+                        <th scope="row">4</th>
+                        <td>DatP</td>
+                        <td>datpt@gmail.com</td>
+                        <td>Ha Noi</td>
+                        <td>0123456789</td>
+                        <td>Male</td>
+                        <td>
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-warning">Delete</button>
+                        </td>
+                    </tr>  <tr>
+                        <th scope="row">5</th>
+                        <td>Quân</td>
+                        <td>quanqb@gmail.com</td>
+                        <td>Ha Noi</td>
+                        <td>0123456789</td>
+                        <td>Male</td>
+                        <td>
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-warning">Delete</button>
+                        </td>
+                    </tr>
+                  
+                     
+                    
+               
+
+                        
+                       
+       
+                    
+                </tbody>
+            </table>
+            <nav aria-label="Page navigation example" style="background-color:Background ">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Button trigger modal -->
+           
         </div>
 
-      
     </main>
     <!-- MAIN -->
 </section>

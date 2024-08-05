@@ -74,3 +74,6 @@ switchMode.addEventListener('change', function () {
 		document.body.classList.remove('dark');
 	}
 })
+var myModal = new bootstrap.Modal(document.getElementById('myModal'), {
+	keyboard: false
+})

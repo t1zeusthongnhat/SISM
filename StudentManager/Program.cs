@@ -14,7 +14,7 @@ builder.Services.AddSession(options =>
 });
 builder.Services.AddHttpContextAccessor();
 
-// Register IUserService and UserService
+// Register IUserService and UserServi
 builder.Services.AddScoped<IUserService>(provider =>
 {
     var environment = provider.GetRequiredService<IWebHostEnvironment>();
@@ -41,6 +41,6 @@ app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Login}/{action=Index}/{id?}");
+    pattern: "{controller=Student}/{action=Index}/{id?}");
 
 app.Run();
