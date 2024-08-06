@@ -17,5 +17,15 @@ namespace StudentManager.Controllers
             var students = _studentService.GetAllStudents();
             return View(students);
         }
+
+
+        public IActionResult CreateStudent()
+        {
+            return View();
+        }
+        public IActionResult EditStudent()
+        {
+            return View();
+        }
     }
 }

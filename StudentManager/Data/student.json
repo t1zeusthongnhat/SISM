@@ -1,39 +1,39 @@
 [
   {
     "Id": 1,
-    "StudentName": "Nguyễn Văn A",
-    "Email": "nguyenvana@example.com",
-    "Address": "123 Đường A, Quận B, TP. C",
-    "Phone": "0901234567",
-    "Gender": "Nam"
+    "StudentName": "Nguyen Ngo Hoang Duong",
+    "Email": "duonghoang@gmail.com",
+    "Address": "Ha Noi",
+    "Phone": "0365078988",
+    "Gender": "Male"
   },{
     "Id": 2,
-    "StudentName": "Nguyễn Văn A",
-    "Email": "nguyenvana@example.com",
-    "Address": "123 Đường A, Quận B, TP. C",
-    "Phone": "0901234567",
-    "Gender": "Nam"
+    "StudentName": "Nguyen Thanh Thao",
+    "Email": "tira8426@gmail.com",
+    "Address": "Ha Noi",
+    "Phone": "09643373335",
+    "Gender": "Female"
   },{
     "Id": 3,
-    "StudentName": "Nguyễn Văn A",
-    "Email": "nguyenvana@example.com",
-    "Address": "123 Đường A, Quận B, TP. C",
+    "StudentName": "Hoang Thai Binh",
+    "Email": "binh@gmail.com",
+    "Address": "Nam Dinh",
     "Phone": "0901234567",
-    "Gender": "Nam"
+    "Gender": "Male"
   },{
     "Id": 4,
-    "StudentName": "Nguyễn Văn A",
-    "Email": "nguyenvana@example.com",
-    "Address": "123 Đường A, Quận B, TP. C",
+    "StudentName": "Le Van Anh",
+    "Email": "vana@gmail.com",
+    "Address": "Thai Nguyen",
     "Phone": "0901234567",
-    "Gender": "Nam"
+    "Gender": "Female"
   },{
     "Id": 5,
-    "StudentName": "Nguyễn Văn A",
-    "Email": "nguyenvana@example.com",
-    "Address": "123 Đường A, Quận B, TP. C",
+    "StudentName": "Le Lan Anh",
+    "Email": "meomeo@gmail.com",
+    "Address": "Phu Tho",
     "Phone": "0901234567",
-    "Gender": "Nam"
+    "Gender": "Female"
   },
  
 ]

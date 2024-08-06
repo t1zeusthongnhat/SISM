@@ -26,7 +26,7 @@
         </a>
         <ul class="side-menu top">
             <li class="active">
-                <a>
+                <a asp-controller="Home" asp-action="Index">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
@@ -38,9 +38,15 @@
                 </a>
             </li>
             <li>
-                <a>
+                <a asp-controller="Course" asp-action="Index">
                     <i class='bx bxs-book'></i>
                     <span class="text">Course Management</span>
+                </a>
+            </li> 
+            <li>
+                <a asp-controller="Course" asp-action="Index">
+                    <i class='bx bxs-book'></i>
+                    <span class="text">User Management</span>
                 </a>
             </li>
 

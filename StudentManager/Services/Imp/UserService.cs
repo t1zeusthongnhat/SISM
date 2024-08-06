@@ -29,5 +29,11 @@ namespace StudentManager.Services.Imp
             File.WriteAllText(_filePath, JsonConvert.SerializeObject(users, Formatting.Indented));
         }
 
+        public List<User> GetUsers()
+        {
+            var jsonData = File.ReadAllText(_filePath);
+            var users = JsonConvert.DeserializeObject<List<User>>(jsonData);
+            return users;
+        }
     }
 }

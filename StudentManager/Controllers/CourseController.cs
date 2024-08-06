@@ -15,5 +15,14 @@ namespace StudentManager.Controllers
             var courses = _courseService.gettDataCourse();
             return View(courses);
         }
+
+        public IActionResult CreateCourse()
+        {
+            return View();
+        } 
+        public IActionResult EditCourse()
+        {
+            return View();
+        }
     }
 }

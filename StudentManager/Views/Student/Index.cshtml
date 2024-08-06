@@ -28,6 +28,12 @@
                 <i class='bx bxs-book'></i>
                 <span class="text">Course Management</span>
             </a>
+        </li> 
+        <li>
+            <a asp-controller="User" asp-action="Index">
+                <i class='bx bxs-user-pin'></i>
+                <span class="text">User Management</span>
+            </a>
         </li>
        
     </ul>
@@ -85,7 +91,7 @@
                 </ul>
             </div>
 
-            <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#addnewUser">Add new</button>
+            <a asp-controller="Student" asp-action="CreateStudent" class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#addnewUser">Add new</a>
         </div>
         <!-- Modal adđ new user -->
         <div class="modal fade" id="addnewUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -121,7 +127,7 @@
                 <tbody>
                     @foreach (var student in Model)
                     {
-                        <tr style="vertical-align: middle; text-align: center;">
+                        <tr style="vertical-align: middle;">
                             <td>@student.Id</td>
                             <td>@student.StudentName</td>
                             <td>@student.Email</td>
@@ -129,7 +135,7 @@
                             <td>@student.Phone</td>
                             <td>@student.Gender</td>
                             <td>
-                                <button class="btn btn-primary">Edit</button>
+                                <a asp-controller="Student" asp-action="CreateStudent" class="btn btn-primary">Edit</a>
                                 <button class="btn btn-warning">Delete</button>
                             </td>
                         </tr>

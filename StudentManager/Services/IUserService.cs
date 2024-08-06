@@ -6,6 +6,7 @@ namespace StudentManager.Services
     {
         User GetUser(string username);
         void CreateUser(User user);
+        List<User> GetUsers(); 
 
 
     }

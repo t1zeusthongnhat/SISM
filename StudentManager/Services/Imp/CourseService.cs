@@ -17,5 +17,11 @@ namespace StudentManager.Services.Imp
             var courses = JsonConvert.DeserializeObject<List<Course>>(jsonData);
             return courses;
         }
+        public int GetCourseCount()
+        {
+            var jsonData = File.ReadAllText(_filePath);
+            var course = JsonConvert.DeserializeObject<List<Course>>(jsonData);
+            return course.Count;
+        }
     }
 }

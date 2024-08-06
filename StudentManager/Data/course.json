@@ -3,21 +3,24 @@
     "Id": 1,
     "Name": "APDP",
     "Status": "Active",
-    "Description": "ABCD"
-  }, {
+    "Description": "Applied Programming and Design Principles"
+  },
+  {
     "Id": 2,
-    "Name": "Buisiness Process Support",
+    "Name": "BPS",
     "Status": "Active",
-    "Description": "QKLM"
-  }, {
+    "Description": "Business Process Support"
+  },
+  {
     "Id": 3,
-    "Name": "Discrete Maths",
+    "Name": "DM",
     "Status": "Active",
-    "Description": "Great"
-  }, {
+    "Description": "Discrete Maths"
+  },
+  {
     "Id": 4,
-    "Name": "Data Structures",
+    "Name": "DSAA",
     "Status": "Active",
-    "Description": "Goodddd"
+    "Description": "Data Structures and Algorithms"
   },
 ]
