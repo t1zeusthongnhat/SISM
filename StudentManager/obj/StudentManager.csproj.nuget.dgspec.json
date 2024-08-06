@@ -56,6 +56,10 @@
             "System.Text.Json": {
               "target": "Package",
               "version": "[8.0.3, )"
+            },
+            "toastr": {
+              "target": "Package",
+              "version": "[2.1.1, )"
             }
           },
           "imports": [

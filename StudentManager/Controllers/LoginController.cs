@@ -33,10 +33,11 @@ namespace StudentManager.Controllers
 
                 if (user != null && user.Password == password)
                 {
+                    TempData["success"] = "Logged in successfully!";
                     return RedirectToAction("Index", "Home");
                 }
 
-                ViewBag.Error = "Thông tin đăng nhập không chính xác.";
+                TempData["error"] = "Login information is incorrect.";
                 return View();
             }
             else
@@ -44,14 +45,14 @@ namespace StudentManager.Controllers
                 // Xử lý đăng ký
                 if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
                 {
-                    ViewBag.Error = "Tất cả các trường đều là bắt buộc.";
+                    TempData["error"] = "All fields are required.";
                     return View();
                 }
 
                 var existingUser = _userService.GetUser(username);
                 if (existingUser != null)
                 {
-                    ViewBag.Error = "Tên người dùng đã tồn tại.";
+                    TempData["error"] = "Username already exists.";
                     return View();
                 }
 
@@ -63,8 +64,8 @@ namespace StudentManager.Controllers
                 };
 
                 _userService.CreateUser(newUser);
-                ViewBag.Message = "Đăng ký thành công!";
-                return View();
+                TempData["success"] = "Sign Up Success!";
+                return RedirectToAction("Index");
             }
         }
     }

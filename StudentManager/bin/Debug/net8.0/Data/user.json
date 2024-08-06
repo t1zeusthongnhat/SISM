@@ -19,5 +19,12 @@
     "Email": "acekem4k2@gmail.com",
     "Password": "1",
     "Role": null
+  },
+  {
+    "Id": 4,
+    "Username": "huy",
+    "Email": "huydinh@gmail.com",
+    "Password": "1",
+    "Role": null
   }
 ]
