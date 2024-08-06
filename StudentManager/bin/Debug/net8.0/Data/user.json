@@ -26,5 +26,26 @@
     "Email": "huydinh@gmail.com",
     "Password": "1",
     "Role": null
+  },
+  {
+    "Id": 5,
+    "Username": "thao",
+    "Email": "nducmanh@gmail.com",
+    "Password": "1",
+    "Role": null
+  },
+  {
+    "Id": 6,
+    "Username": "thanh",
+    "Email": "nducmanh@gmail.com",
+    "Password": "1",
+    "Role": null
+  },
+  {
+    "Id": 7,
+    "Username": "huycvd",
+    "Email": "acekem4k2@gmail.com",
+    "Password": "1",
+    "Role": null
   }
 ]

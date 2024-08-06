@@ -2,6 +2,7 @@
     ViewBag.Title = "Student";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
+@model List<Student>
 
 <!-- SIDEBAR -->
 <section id="sidebar">
@@ -115,78 +116,27 @@
                         <th scope="col">Phone</th>
                         <th scope="col">Gender</th>
                         <th scope="col" colspan="2">Action</th>
-
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Duong </td>
-                        <td>duonghoang@gmail.com</td>
-                        <td>Ha Noi</td>
-                        <td>0123456789</td>
-                        <td>Male</td>
-                        <td><button class="btn btn-primary">Edit</button>
-                        <button class="btn btn-warning">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Huy</td>
-                        <td>huynd@gmail.com</td>
-                        <td>Ha Noi</td>
-                        <td>0123456789</td>
-                        <td>Male</td>
-                        <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-warning">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Thanh</td>
-                        <td>thanhnc@gmail.com</td>
-                        <td>Ha Noi</td>
-                        <td>0123456789</td>
-                        <td>Male</td>
-                        <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-warning">Delete</button>
-                        </td>
-                    </tr>  <tr>
-                        <th scope="row">4</th>
-                        <td>DatP</td>
-                        <td>datpt@gmail.com</td>
-                        <td>Ha Noi</td>
-                        <td>0123456789</td>
-                        <td>Male</td>
-                        <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-warning">Delete</button>
-                        </td>
-                    </tr>  <tr>
-                        <th scope="row">5</th>
-                        <td>Quân</td>
-                        <td>quanqb@gmail.com</td>
-                        <td>Ha Noi</td>
-                        <td>0123456789</td>
-                        <td>Male</td>
-                        <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-warning">Delete</button>
-                        </td>
-                    </tr>
-                  
-                     
-                    
-               
-
-                        
-                       
-       
-                    
+                    @foreach (var student in Model)
+                    {
+                        <tr style="vertical-align: middle; text-align: center;">
+                            <td>@student.Id</td>
+                            <td>@student.StudentName</td>
+                            <td>@student.Email</td>
+                            <td>@student.Address</td>
+                            <td>@student.Phone</td>
+                            <td>@student.Gender</td>
+                            <td>
+                                <button class="btn btn-primary">Edit</button>
+                                <button class="btn btn-warning">Delete</button>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
+
             <nav aria-label="Page navigation example" style="background-color:Background ">
                 <ul class="pagination">
                     <li class="page-item">

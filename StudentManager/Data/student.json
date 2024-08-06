@@ -1,0 +1,39 @@
+[
+  {
+    "Id": 1,
+    "StudentName": "Nguyễn Văn A",
+    "Email": "nguyenvana@example.com",
+    "Address": "123 Đường A, Quận B, TP. C",
+    "Phone": "0901234567",
+    "Gender": "Nam"
+  },{
+    "Id": 2,
+    "StudentName": "Nguyễn Văn A",
+    "Email": "nguyenvana@example.com",
+    "Address": "123 Đường A, Quận B, TP. C",
+    "Phone": "0901234567",
+    "Gender": "Nam"
+  },{
+    "Id": 3,
+    "StudentName": "Nguyễn Văn A",
+    "Email": "nguyenvana@example.com",
+    "Address": "123 Đường A, Quận B, TP. C",
+    "Phone": "0901234567",
+    "Gender": "Nam"
+  },{
+    "Id": 4,
+    "StudentName": "Nguyễn Văn A",
+    "Email": "nguyenvana@example.com",
+    "Address": "123 Đường A, Quận B, TP. C",
+    "Phone": "0901234567",
+    "Gender": "Nam"
+  },{
+    "Id": 5,
+    "StudentName": "Nguyễn Văn A",
+    "Email": "nguyenvana@example.com",
+    "Address": "123 Đường A, Quận B, TP. C",
+    "Phone": "0901234567",
+    "Gender": "Nam"
+  },
+ 
+]

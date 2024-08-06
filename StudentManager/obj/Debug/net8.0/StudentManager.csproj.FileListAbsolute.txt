@@ -108,3 +108,5 @@ E:\ASP.NET_MVC\SISM\StudentManager\obj\Debug\net8.0\refint\StudentManager.dll
 E:\ASP.NET_MVC\SISM\StudentManager\obj\Debug\net8.0\StudentManager.pdb
 E:\ASP.NET_MVC\SISM\StudentManager\obj\Debug\net8.0\StudentManager.genruntimeconfig.cache
 E:\ASP.NET_MVC\SISM\StudentManager\obj\Debug\net8.0\ref\StudentManager.dll
+E:\ASP.NET_MVC\SISM\StudentManager\bin\Debug\net8.0\Data\student.json
+E:\ASP.NET_MVC\SISM\StudentManager\bin\Debug\net8.0\Data\course.json

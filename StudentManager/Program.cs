@@ -19,6 +19,12 @@ builder.Services.AddHttpContextAccessor();
 // Đăng ký UserService
 builder.Services.AddTransient<IUserService, UserService>();
 
+// Đăng ký StudentService
+builder.Services.AddScoped<IStudentService, StudentService>();
+
+// Đăng ký CourseService
+builder.Services.AddScoped<ICourseService, CourseService>();
+
 
 var app = builder.Build();
 

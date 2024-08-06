@@ -1,10 +1,9 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
     ViewBag.Title = "Course";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
+@model List<Course>
+
 
 <!-- CONTENT -->
 <section id="content">
@@ -60,46 +59,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>APDP </td>
-                        <td>Active</td>
-                        <td>None</td>
-                        
-                        <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-warning">Delete</button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>BP </td>
-                        <td>Active</td>
-                        <td>None</td>
-
-                        <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-warning">Delete</button>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>MD </td>
-                        <td>Active</td>
-                        <td>None</td>
-
-                        <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-warning">Delete</button>
-                        </td>
-                    </tr>
-
-
-
-
-
+                    @foreach (var course in Model)
+                    {
+                        <tr >
+                            <td>@course.Id</td>
+                            <td>@course.Name</td>
+                            <td>@course.Status</td>
+                            <td>@course.Description</td>
+                            <td>
+                                <button class="btn btn-primary">Edit</button>
+                                <button class="btn btn-warning">Delete</button>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
             <nav aria-label="Page navigation example" style="background-color:Background ">
