@@ -3,51 +3,9 @@
 *@
 @{
     ViewBag.Title = "Course";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
-<!-- SIDEBAR -->
-<section id="sidebar">
-    <a asp-controller="Home" asp-action="Index" class="brand">
-        <img class="bx bxs-smile png-stu" src="~/images/LogoBTEC-1.png" alt="Alternate Text" />
-        <span class="text text-png">Student Management</span>
-    </a>
-    <ul class="side-menu top">
-        <li>
-            <a asp-controller="Home" asp-action="Index">
-                <i class='bx bxs-dashboard'></i>
-                <span class="text">Dashboard</span>
-            </a>
-        </li>
-        <li>
-            <a asp-controller="Student" asp-action="Index">
-                <i class='bx bxs-user'></i>
-                <span class="text">Student Management</span>
-            </a>
-        </li>
-        <li class="active">
-            <a asp-controller="Course" asp-action="Index">
-                <i class='bx bxs-book'></i>
-                <span class="text">Course Management</span>
-            </a>
-        </li>
 
-    </ul>
-    <ul class="side-menu">
-        <li>
-            <a>
-                <i class='bx bxs-cog'></i>
-                <span class="text">Settings</span>
-            </a>
-        </li>
-        <li>
-            <a class="logout" asp-controller="Login" asp-action="Index">
-                <i class='bx bxs-log-out-circle'></i>
-                <span class="text">Logout</span>
-            </a>
-        </li>
-    </ul>
-</section>
-<!-- SIDEBAR -->
 <!-- CONTENT -->
 <section id="content">
     <!-- NAVBAR -->

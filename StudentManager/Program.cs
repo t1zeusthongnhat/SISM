@@ -1,5 +1,7 @@
-﻿using StudentManager.Service.IService;
-using StudentManager.Service;
+﻿
+
+using StudentManager.Services.Imp;
+using StudentManager.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,13 +16,9 @@ builder.Services.AddSession(options =>
 });
 builder.Services.AddHttpContextAccessor();
 
-// Register IUserService and UserServi
-builder.Services.AddScoped<IUserService>(provider =>
-{
-    var environment = provider.GetRequiredService<IWebHostEnvironment>();
-    var filePath = Path.Combine(environment.ContentRootPath, "Data", "user.json");
-    return new UserService(filePath);
-});
+// Đăng ký UserService
+builder.Services.AddTransient<IUserService, UserService>();
+
 
 var app = builder.Build();
 

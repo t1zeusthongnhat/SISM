@@ -3,11 +3,21 @@
     "Id": 1,
     "Username": "duonghoang",
     "Email": "acekem4k2@gmail.com",
-    "Password": "1"
-  }, {
+    "Password": "1",
+    "Role": null
+  },
+  {
     "Id": 2,
     "Username": "huynd",
     "Email": "huynd@gmail.com",
-    "Password": "1"
+    "Password": "1",
+    "Role": null
   },
+  {
+    "Id": 3,
+    "Username": "duong",
+    "Email": "acekem4k2@gmail.com",
+    "Password": "1",
+    "Role": null
+  }
 ]
