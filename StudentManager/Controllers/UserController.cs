@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using StudentManager.Models;
 using StudentManager.Services;
+using StudentManager.Services.Imp;
 
 namespace StudentManager.Controllers
 {
@@ -13,20 +15,56 @@ namespace StudentManager.Controllers
             _userService = userService;
         }
 
+     
         public IActionResult Index()
         {
             var users = _userService.GetUsers();
             return View(users);
         }
 
-        public IActionResult createUser()
+        [HttpGet]
+        public IActionResult CreateUser()
         {
             return View();
         }
 
-        public IActionResult editUser()
+        [HttpPost]
+        public IActionResult CreateUser(User user)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                _userService.AddUser(user);
+                TempData["success"] = "User added successfully!";
+                return RedirectToAction("Index", "User");
+            }
+
+            TempData["error"] = "There was an error adding the User.";
+            return View(user);
+        }
+
+        [HttpGet]
+        public IActionResult EditUser(int id)
+        {
+            var users = _userService.GetUserById(id);
+            if(users== null)
+            {
+                return NotFound();
+            }
+            return View(users);
+        }
+
+        [HttpPost]
+        public IActionResult EditUser(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                _userService.UpdateUser(user);
+                TempData["success"] = "Update success!";
+                return RedirectToAction("Index", "User");
+            }
+
+            TempData["error"] = "Error.";
+            return View(user);
         }
     }
 }

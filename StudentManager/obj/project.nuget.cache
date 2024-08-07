@@ -1,16 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "Ua0GOyxL5sQ=",
+  "dgSpecHash": "qJVusO15SXqRB8X6lgI6CjNqifhqYelDwPn2vmzczzez3JDXxB5rxjx7W6RetS8W5D7iUcLr14QIhunPJkYBaA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\SISM1\\StudentManager\\StudentManager.csproj",
+  "projectFilePath": "E:\\ASP.NET_MVC\\SISM\\StudentManager\\StudentManager.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Admin\\.nuget\\packages\\jquery\\1.6.3\\jquery.1.6.3.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.net.http.headers\\8.0.6\\microsoft.net.http.headers.8.0.6.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\system.text.json\\8.0.3\\system.text.json.8.0.3.nupkg.sha512",
-    "C:\\Users\\Admin\\.nuget\\packages\\toastr\\2.1.1\\toastr.2.1.1.nupkg.sha512"
+    "C:\\Users\\ttndu\\.nuget\\packages\\jquery\\1.6.3\\jquery.1.6.3.nupkg.sha512",
+    "C:\\Users\\ttndu\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\ttndu\\.nuget\\packages\\microsoft.net.http.headers\\8.0.6\\microsoft.net.http.headers.8.0.6.nupkg.sha512",
+    "C:\\Users\\ttndu\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\ttndu\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
+    "C:\\Users\\ttndu\\.nuget\\packages\\system.text.json\\8.0.3\\system.text.json.8.0.3.nupkg.sha512",
+    "C:\\Users\\ttndu\\.nuget\\packages\\toastr\\2.1.1\\toastr.2.1.1.nupkg.sha512"
   ],
   "logs": [
     {

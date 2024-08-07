@@ -1,56 +1,11 @@
-﻿@{
-    ViewBag.Title = "createStudent";
+﻿@model StudentManager.Models.Student
+
+@{
+    ViewBag.Title = "Edit Student";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
-<section id="sidebar">
-    <a asp-controller="Home" asp-action="Index" class="brand">
-        <img class="bx bxs-smile png-stu" src="~/images/LogoBTEC-1.png" alt="Alternate Text" />
-        <span class="text text-png">Student Management</span>
-    </a>
-    <ul class="side-menu top">
-        <li>
-            <a asp-controller="Home" asp-action="Index">
-                <i class='bx bxs-dashboard'></i>
-                <span class="text">Dashboard</span>
-            </a>
-        </li>
-        <li class="active">
-            <a asp-controller="Student" asp-action="Index">
-                <i class='bx bxs-user'></i>
-                <span class="text">Student Management</span>
-            </a>
-        </li>
-        <li>
-            <a asp-controller="Course" asp-action="Index">
-                <i class='bx bxs-book'></i>
-                <span class="text">Course Management</span>
-            </a>
-        </li>
-        <li>
-            <a asp-controller="User" asp-action="Index">
-                <i class='bx bxs-user-pin'></i>
-                <span class="text">User Management</span>
-            </a>
-        </li>
 
-    </ul>
-    <ul class="side-menu">
-        <li>
-            <a>
-                <i class='bx bxs-cog'></i>
-                <span class="text">Settings</span>
-            </a>
-        </li>
-        <li>
-            <a class="logout" asp-controller="Login" asp-action="Index">
-                <i class='bx bxs-log-out-circle'></i>
-                <span class="text">Logout</span>
-            </a>
-        </li>
-    </ul>
-</section>
 <section id="content">
-    <!-- NAVBAR -->
     <nav>
         <i class='bx bx-menu'></i>
         <form action="#">
@@ -69,82 +24,70 @@
             <img src="~/images/—Pngtree—cartoon pig head_4235799.png">
         </a>
     </nav>
-    <!-- NAVBAR -->
-    <!-- MAIN -->
+
     <main>
         <div class="head-title">
             <div class="left">
-                <h1>Add new</h1>
+                <h1>Update Student</h1>
                 <ul class="breadcrumb">
                     <li>
                         <a href="#">Dashboard</a>
                     </li>
                     <li><i class='bx bx-chevron-right'></i></li>
                     <li>
-                        <a asp-controller="Student" asp-action="Index"> Student Management </a>
+                        <a asp-controller="Student" asp-action="Index">Student Management</a>
                     </li>
                     <li><i class='bx bx-chevron-right'></i></li>
-
                     <li>
-                        <a class="active" href="#">Edit </a>
+                        <a class="active" href="#">Edit</a>
                     </li>
                 </ul>
             </div>
-
             <a class="btn btn-success" asp-controller="Student" asp-action="Index">Back</a>
         </div>
 
         <div class="content">
-            <form>
+            <form asp-action="EditStudent">
+                <input type="hidden" asp-for="Id" /> <!-- Ẩn trường ID -->
                 <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" class="form-control" placeholder="Full Name">
-
+                    <label asp-for="StudentName"></label>
+                    <input asp-for="StudentName" class="form-control" />
+                    <span asp-validation-for="StudentName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label>Address</label>
-                    <input type="text" class="form-control" placeholder="address">
-
+                    <label asp-for="Address"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label>Phone</label>
-                    <input type="text" class="form-control" placeholder="phone number">
-
+                    <label asp-for="Phone"></label>
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
                 </div>
                 <div class="select-gender">
-                    <label>Gender</label>
-
-                    <select class="form-select" aria-label="Default select example" style="
-    width: 100%;
-    padding: 8px;
-    border: none;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-">
+                    <label asp-for="Gender"></label>
+                    <select asp-for="Gender" class="form-select" aria-label="Default select example" style="width: 100%; padding: 8px; border: 1px solid #ced4da; border-radius: 5px;">
                         <option selected>---Choose---</option>
-                        <option value="1">Male</option>
-                        <option value="2">Female</option>
-                        <option value="3">Other</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
                     </select>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label for="startDate">Birthday</label>
-                    <input id="startDate" class="form-control" type="date" />
-
+                    <label asp-for="Birthday"></label>
+                    <input asp-for="Birthday" class="form-control" type="date" />
+                    <span asp-validation-for="Birthday" class="text-danger"></span>
                 </div>
                 <div class="btn-add" style="margin-bottom: 50px">
-                    <button type="submit" class="btn btn-primary" style="float: right; padding: 10px; width: 100px; height: 50px">Update</button>
-
+                    <button type="submit" class="btn btn-primary mr-2">Update</button>
                 </div>
             </form>
         </div>
-
-
     </main>
-    <!-- MAIN -->
 </section>

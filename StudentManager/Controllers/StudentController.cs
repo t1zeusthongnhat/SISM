@@ -1,31 +1,63 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using StudentManager.Models;
 using StudentManager.Services;
 
-namespace StudentManager.Controllers
+public class StudentController : Controller
 {
-    public class StudentController : Controller
+    private IStudentService _studentService;
+    public StudentController(IStudentService studentService)
     {
+        _studentService = studentService;
+    }
 
-        private IStudentService _studentService;
-        public StudentController(IStudentService studentService)
+    public IActionResult Index()
+    {
+        var students = _studentService.GetAllStudents();
+        return View(students);
+    }
+
+    [HttpGet]
+    public IActionResult CreateStudent()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult CreateStudent(Student student)
+    {
+        if (ModelState.IsValid)
         {
-            _studentService = studentService;
+            _studentService.AddStudent(student);
+            TempData["success"] = "Student added successfully!";
+            return RedirectToAction("Index", "Student");
         }
 
-        public IActionResult Index()
+        TempData["error"] = "There was an error adding the student.";
+        return View(student);
+    }
+
+    [HttpGet]
+    public IActionResult EditStudent(int id) // Thêm tham số id
+    {
+        var student = _studentService.GetStudentById(id);
+        if (student == null)
         {
-            var students = _studentService.GetAllStudents();
-            return View(students);
+            return NotFound();
+        }
+        return View(student);
+    }
+
+    [HttpPost]
+    public IActionResult EditStudent(Student student)
+    {
+        if (ModelState.IsValid)
+        {
+            _studentService.UpdateStudent(student);
+            TempData["success"] = "Update success!";
+            return RedirectToAction("Index", "Student");
         }
 
-
-        public IActionResult CreateStudent()
-        {
-            return View();
-        }
-        public IActionResult EditStudent()
-        {
-            return View();
-        }
+        TempData["error"] = "Error.";
+        return View(student);
     }
 }

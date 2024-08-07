@@ -11,14 +11,14 @@
         <span class="text text-png">Student Management</span>
     </a>
     <ul class="side-menu top">
-        <li >
+        <li>
             <a asp-controller="Home" asp-action="Index">
                 <i class='bx bxs-dashboard'></i>
                 <span class="text">Dashboard</span>
             </a>
         </li>
         <li class="active">
-            <a  asp-controller="Student" asp-action="Index">
+            <a asp-controller="Student" asp-action="Index">
                 <i class='bx bxs-user'></i>
                 <span class="text">Student Management</span>
             </a>
@@ -28,18 +28,17 @@
                 <i class='bx bxs-book'></i>
                 <span class="text">Course Management</span>
             </a>
-        </li> 
+        </li>
         <li>
             <a asp-controller="User" asp-action="Index">
                 <i class='bx bxs-user-pin'></i>
                 <span class="text">User Management</span>
             </a>
         </li>
-       
     </ul>
     <ul class="side-menu">
         <li>
-            <a >
+            <a>
                 <i class='bx bxs-cog'></i>
                 <span class="text">Settings</span>
             </a>
@@ -90,10 +89,10 @@
                     </li>
                 </ul>
             </div>
-
             <a asp-controller="Student" asp-action="CreateStudent" class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#addnewUser">Add new</a>
         </div>
-        <!-- Modal adđ new user -->
+
+        <!-- Modal add new user -->
         <div class="modal fade" id="addnewUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -111,6 +110,7 @@
                 </div>
             </div>
         </div>
+
         <div class="content">
             <table class="table">
                 <thead>
@@ -121,7 +121,8 @@
                         <th scope="col">Address</th>
                         <th scope="col">Phone</th>
                         <th scope="col">Gender</th>
-                        <th scope="col" colspan="2">Action</th>
+                        <th scope="col">Birthday</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -134,9 +135,12 @@
                             <td>@student.Address</td>
                             <td>@student.Phone</td>
                             <td>@student.Gender</td>
+                            <td>@student.Birthday</td>
                             <td>
-                                <a asp-controller="Student" asp-action="EditStudent" class="btn btn-primary">Edit</a>
-                                <button class="btn btn-warning">Delete</button>
+                                <div class="d-flex">
+                                    <a asp-controller="Student" asp-action="EditStudent" asp-route-id="@student.Id" class="btn btn-primary mr-2">Edit</a>
+                                    <button class="btn btn-warning">Delete</button>
+                                </div>
                             </td>
                         </tr>
                     }
@@ -162,10 +166,7 @@
                     </li>
                 </ul>
             </nav>
-            <!-- Button trigger modal -->
-           
         </div>
-
     </main>
     <!-- MAIN -->
 </section>

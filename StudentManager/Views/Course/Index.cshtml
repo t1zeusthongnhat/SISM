@@ -115,7 +115,7 @@
                             <td>@course.Status</td>
                             <td>@course.Description</td>
                             <td>
-                                <a asp-controller="Course" asp-action="CreateCourse" class="btn btn-primary">Edit</a>
+                                <a asp-controller="Course" asp-action="EditCourse" asp-route-id="@course.Id" class="btn btn-primary">Edit</a>
                                 <button class="btn btn-warning">Delete</button>
                             </td>
                         </tr>

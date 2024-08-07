@@ -2,6 +2,7 @@
     ViewBag.Title = "createCourse";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
+@model Course
 <section id="sidebar">
     <a asp-controller="Home" asp-action="Index" class="brand">
         <img class="bx bxs-smile png-stu" src="~/images/LogoBTEC-1.png" alt="Alternate Text" />
@@ -14,7 +15,7 @@
                 <span class="text">Dashboard</span>
             </a>
         </li>
-        <li >
+        <li>
             <a asp-controller="Student" asp-action="Index">
                 <i class='bx bxs-user'></i>
                 <span class="text">Student Management</span>
@@ -32,7 +33,6 @@
                 <span class="text">User Management</span>
             </a>
         </li>
-
     </ul>
     <ul class="side-menu">
         <li>
@@ -84,65 +84,40 @@
                         <a asp-controller="Student" asp-action="Index"> Course Management </a>
                     </li>
                     <li><i class='bx bx-chevron-right'></i></li>
-
                     <li>
                         <a class="active" href="#">Add new</a>
                     </li>
                 </ul>
             </div>
-
             <a class="btn btn-success" asp-controller="Course" asp-action="Index">Back</a>
-
         </div>
-
         <div class="content">
-            <form>
+            <form asp-action="CreateCourse" method="post">
                 <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" class="form-control" placeholder="Full Name">
-
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" class="form-control" placeholder="Full Name" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description"></label>
+                    <input asp-for="Description" class="form-control" placeholder="Description" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Status"></label>
+                    <select asp-for="Status" class="form-select" aria-label="Default select example" style="width: 100%; padding: 8px; border: none; border: 1px solid #ced4da; border-radius: 5px;">
+                        <option value="" disabled selected>---Choose---</option>
+                        <option value="Active">Active</option>
+                        <option value="Deactive">Deactive</option>
+                    </select>
+                    <span asp-validation-for="Status" class="text-danger"></span>
                 </div>
                
-              
-                <div class="form-group">
-                    <label>Description</label>
-                    <input type="text" class="form-control" placeholder="Description">
-
-                </div>
-                <div >
-                    <label>Status</label>
-
-                    <select class="form-select" aria-label="Default select example" style="
-    width: 100%;
-    padding: 8px;
-    border: none;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-">
-                        <option selected>---Choose---</option>
-                        <option value="1">Active</option>
-                        <option value="2">Deactive</option>
-                        
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="startDate">Start Date</label>
-                    <input id="startDate" class="form-control" type="date" />
-
-                </div> 
-                <div class="form-group">
-                    <label for="endate">End Date</label>
-                    <input id="endate" class="form-control" type="date" />
-
-                </div>
                 <div class="btn-add" style="margin-bottom: 50px">
                     <button type="submit" class="btn btn-primary" style="float: right; padding: 10px; width: 100px; height: 50px">Add</button>
-
                 </div>
             </form>
         </div>
-
-
     </main>
     <!-- MAIN -->
 </section>

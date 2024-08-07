@@ -30,11 +30,21 @@ namespace StudentManager.Controllers
             {
                 // Xử lý đăng nhập
                 var user = _userService.GetUser(username);
-
-                if (user != null && user.Password == password)
+                if (user != null)
                 {
-                    TempData["success"] = "Logged in successfully!";
-                    return RedirectToAction("Index", "Home");
+                    if (user.Password == password)
+                    {
+                        if (user.Status == "Active")
+                        {
+                            TempData["success"] = "Logged in successfully!";
+                            return RedirectToAction("Index", "Home");
+                        }
+                        else if (user.Status == "Deactive")
+                        {
+                            TempData["error"] = "Your account has been blocked!!!";
+                            return View();
+                        }
+                    }
                 }
 
                 TempData["error"] = "Login information is incorrect.";

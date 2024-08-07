@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Course";
+    ViewBag.Title = "User";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 @model List<User>
@@ -119,7 +119,7 @@
                             <td>@user.Role</td>
                             <td>@user.Status</td>  
                             <td>
-                                <a asp-controller="User" asp-action="editUser" class="btn btn-primary">Edit</a>
+                                <a asp-controller="User" asp-action="EditUser" asp-route-id="@user.Id" class="btn btn-primary">Edit</a>
                                 <button class="btn btn-warning">Delete</button>
                             </td>
                         </tr>

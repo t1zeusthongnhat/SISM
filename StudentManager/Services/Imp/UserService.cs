@@ -35,5 +35,44 @@ namespace StudentManager.Services.Imp
             var users = JsonConvert.DeserializeObject<List<User>>(jsonData);
             return users;
         }
+       
+
+        public void AddUser(User user)
+        {
+            var users = GetUsers();
+            if (users.Any())
+            {
+                user.Id = users.Max(s => s.Id) + 1;
+            }
+            else
+            {
+                user.Id = 1;
+            }
+            users.Add(user);
+            File.WriteAllText(_filePath, JsonConvert.SerializeObject(users));
+        }
+
+        private List<User> GetUserss()
+        {
+            var json = File.ReadAllText(_filePath);
+            return JsonConvert.DeserializeObject<List<User>>(json);
+        }
+
+        public User GetUserById(int id)
+        {
+            var users = GetUserss();
+            return users.FirstOrDefault(u => u.Id == id);
+        }
+
+        public void UpdateUser(User user)
+        {
+            var users = GetUserss();
+            var index = users.FindIndex(s => s.Id == user.Id);
+            if (index != -1)
+            {
+                users[index] = user;
+                File.WriteAllText(_filePath, JsonConvert.SerializeObject(users));
+            }
+        }
     }
 }

@@ -6,5 +6,9 @@ namespace StudentManager.Services
     {
         List<Course> gettDataCourse();
         int GetCourseCount();
+        public void AddCourse(Course course);
+
+        Course GetCourseById(int id);
+        void UpdateCourse(Course course);
     }
 }
