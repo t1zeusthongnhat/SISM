@@ -1,19 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "cR763E6YLOnMngKmhmZgZcpDYE+leMPSmULeMCkN9XOfY/07jTh4oKrS1+NyPmpqE29BnnVmx+pLd2H3srKZlw==",
+  "dgSpecHash": "OUTZhhbgeO8=",
   "success": true,
-  "projectFilePath": "E:\\ASP.NET_MVC\\SISM\\StudentManager\\StudentManager.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Source\\Repos\\SISM2\\StudentManager\\StudentManager.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\ttndu\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
-    "C:\\Users\\ttndu\\.nuget\\packages\\jquery\\1.6.3\\jquery.1.6.3.nupkg.sha512",
-    "C:\\Users\\ttndu\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
-    "C:\\Users\\ttndu\\.nuget\\packages\\microsoft.net.http.headers\\8.0.6\\microsoft.net.http.headers.8.0.6.nupkg.sha512",
-    "C:\\Users\\ttndu\\.nuget\\packages\\moq\\4.20.70\\moq.4.20.70.nupkg.sha512",
-    "C:\\Users\\ttndu\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Users\\ttndu\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512",
-    "C:\\Users\\ttndu\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
-    "C:\\Users\\ttndu\\.nuget\\packages\\system.text.json\\8.0.3\\system.text.json.8.0.3.nupkg.sha512",
-    "C:\\Users\\ttndu\\.nuget\\packages\\toastr\\2.1.1\\toastr.2.1.1.nupkg.sha512"
+    "C:\\Users\\Admin\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\jquery\\1.6.3\\jquery.1.6.3.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.net.http.headers\\8.0.6\\microsoft.net.http.headers.8.0.6.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\moq\\4.20.70\\moq.4.20.70.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.text.json\\8.0.3\\system.text.json.8.0.3.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\toastr\\2.1.1\\toastr.2.1.1.nupkg.sha512"
   ],
   "logs": [
     {

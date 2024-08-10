@@ -12,6 +12,8 @@ public class StudentController : Controller
 
     public IActionResult Index(int pageNumber = 1, int pageSize = 5)
     {
+       
+
         var students = _studentService.GetStudentsPaged(pageNumber, pageSize);
         var totalStudents = _studentService.GetStudentCount();
         var totalPages = (int)Math.Ceiling((double)totalStudents / pageSize);

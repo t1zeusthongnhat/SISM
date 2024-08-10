@@ -45,6 +45,7 @@ app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
+    
     pattern: "{controller=Student}/{action=Index}/{id?}");
 
 app.Run();
