@@ -1,14 +1,14 @@
 ﻿@{
-    ViewBag.Title = "Student";
+    ViewBag.Title = "User";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
-@model List<Student>
+@model List<User>
 
 <!-- SIDEBAR -->
 <section id="sidebar">
     <a asp-controller="Home" asp-action="Index" class="brand">
-        <img class="bx bxs-smile png-stu" src="~/images/LogoBTEC-1.png" alt="Logo" />
-        <span class="text text-png">Student List</span>
+        <img class="bx bxs-smile png-stu" src="~/images/LogoBTEC-1.png" alt="Alternate Text" />
+        <span class="text text-png">Student Management</span>
     </a>
     <ul class="side-menu top">
         <li>
@@ -17,7 +17,7 @@
                 <span class="text">Dashboard</span>
             </a>
         </li>
-        <li class="active">
+        <li class="">
             <a asp-controller="Student" asp-action="Index">
                 <i class='bx bxs-user'></i>
                 <span class="text">Student List</span>
@@ -29,12 +29,13 @@
                 <span class="text">Course List</span>
             </a>
         </li>
-        <li>
+        <li class="active">
             <a asp-controller="User" asp-action="Index">
                 <i class='bx bxs-user-pin'></i>
                 <span class="text">User List</span>
             </a>
         </li>
+
     </ul>
     <ul class="side-menu">
         <li>
@@ -57,6 +58,12 @@
     <!-- NAVBAR -->
     <nav>
         <i class='bx bx-menu'></i>
+        <form action="#">
+            <div class="form-input">
+                <input type="search" placeholder="Search...">
+                <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+            </div>
+        </form>
         <input type="checkbox" id="switch-mode" hidden>
         <label for="switch-mode" class="switch-mode"></label>
         <a href="#" class="notification">
@@ -72,82 +79,70 @@
     <main>
         <div class="head-title">
             <div class="left">
-                <h1>Student List</h1>
+                <h1>Dashboard</h1>
                 <ul class="breadcrumb">
                     <li>
                         <a href="#">Dashboard</a>
                     </li>
                     <li><i class='bx bx-chevron-right'></i></li>
                     <li>
-                        <a class="active" href="#">Student List</a>
+                        <a class="active" href="#">User List</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" asp-controller="Student" asp-action="Search" method="get">
-                    <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
             </div>
+
            
         </div>
-
         <div class="content">
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">FullName</th>
+                        <th scope="col">Username</th>
                         <th scope="col">Email</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Gender</th>
-                        <th scope="col">Birthday</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Status</th>
+
+                        <th scope="col" colspan="2">Action</th>
+
                     </tr>
                 </thead>
                 <tbody>
-                    @if (!Model.Any())
+                    @foreach (var user in Model)
                     {
                         <tr>
-                            <td colspan="8" class="text-center">No results found for your search.</td>
+                            <td>@user.Id</td>
+                            <td>@user.Username</td>
+                            <td>@user.Email</td>
+                            <td>@user.Password</td>
+                            <td>@user.Role</td>
+                            <td>@user.Status</td>
+                            
                         </tr>
-                    }
-                    else
-                    {
-                        @foreach (var student in Model)
-                        {
-                            <tr style="vertical-align: middle;">
-                                <td>@student.Id</td>
-                                <td>@student.StudentName</td>
-                                <td>@student.Email</td>
-                                <td>@student.Address</td>
-                                <td>@student.Phone</td>
-                                <td>@student.Gender</td>
-                                <td>@student.Birthday.ToString("dd/MM/yyyy")</td>
-                                
-                            </tr>
-                        }
                     }
                 </tbody>
             </table>
-
-            <nav id="pagination" aria-label="Page navigation example">
+            <nav aria-label="Page navigation example" style="background-color:Background ">
                 <ul class="pagination">
-                    <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
-                        <a class="page-link" asp-action="Index" asp-route-pageNumber="@(ViewBag.CurrentPage - 1)">Previous</a>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
                     </li>
-                    @for (int i = 1; i <= ViewBag.TotalPages; i++)
-                    {
-                        <li class="page-item @(ViewBag.CurrentPage == i ? "active" : "")">
-                            <a class="page-link" asp-action="Index" asp-route-pageNumber="@i">@i</a>
-                        </li>
-                    }
-                    <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
-                        <a class="page-link" asp-action="Index" asp-route-pageNumber="@(ViewBag.CurrentPage + 1)">Next</a>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
                     </li>
                 </ul>
             </nav>
+
         </div>
+     
     </main>
     <!-- MAIN -->
 </section>
-<!-- CONTENT -->

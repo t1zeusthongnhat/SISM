@@ -8,7 +8,7 @@
 <section id="sidebar">
     <a asp-controller="Home" asp-action="Index" class="brand">
         <img class="bx bxs-smile png-stu" src="~/images/LogoBTEC-1.png" alt="Alternate Text" />
-        <span class="text text-png">Student Management</span>
+        <span class="text text-png">Student List</span>
     </a>
     <ul class="side-menu top">
         <li>
@@ -20,19 +20,19 @@
         <li class="">
             <a asp-controller="Student" asp-action="Index">
                 <i class='bx bxs-user'></i>
-                <span class="text">Student Management</span>
+                <span class="text">Student List</span>
             </a>
         </li>
         <li class="active">
             <a asp-controller="Course" asp-action="Index">
                 <i class='bx bxs-book'></i>
-                <span class="text">Course Management</span>
+                <span class="text">Course List</span>
             </a>
         </li>
         <li>
             <a asp-controller="User" asp-action="Index">
                 <i class='bx bxs-user-pin'></i>
-                <span class="text">User Management</span>
+                <span class="text">User List</span>
             </a>
         </li>
 
@@ -86,7 +86,7 @@
                     </li>
                     <li><i class='bx bx-chevron-right'></i></li>
                     <li>
-                        <a class="active" href="#">Course Management</a>
+                        <a class="active" href="#">Course List</a>
                     </li>
                 </ul>
             </div>
@@ -138,24 +138,7 @@
             </nav>
 
         </div>
-        @* modal add new *@
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+    
     </main>
     <!-- MAIN -->
 </section>
