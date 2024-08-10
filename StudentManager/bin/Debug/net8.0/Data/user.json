@@ -118,5 +118,13 @@
     "Password": "1",
     "Role": null,
     "Status": "Active"
+  },
+  {
+    "Id": 16,
+    "Username": "duc",
+    "Email": "acekem4k2@gmail.com",
+    "Password": "1",
+    "Role": null,
+    "Status": "Active"
   }
 ]

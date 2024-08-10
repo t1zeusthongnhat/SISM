@@ -10,7 +10,7 @@ public class StudentController : Controller
         _studentService = studentService;
     }
 
-    public IActionResult Index(int pageNumber = 1, int pageSize = 5)
+    public IActionResult Index(int pageNumber = 1, int pageSize = 4)
     {
         var students = _studentService.GetStudentsPaged(pageNumber, pageSize);
         var totalStudents = _studentService.GetStudentCount();
