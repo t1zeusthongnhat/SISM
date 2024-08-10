@@ -10,11 +10,19 @@ public class StudentController : Controller
         _studentService = studentService;
     }
 
-    public IActionResult Index()
+    public IActionResult Index(int pageNumber = 1, int pageSize = 5)
     {
-        var students = _studentService.GetAllStudents();
+        var students = _studentService.GetStudentsPaged(pageNumber, pageSize);
+        var totalStudents = _studentService.GetStudentCount();
+        var totalPages = (int)Math.Ceiling((double)totalStudents / pageSize);
+
+        ViewBag.CurrentPage = pageNumber;
+        ViewBag.TotalPages = totalPages;
+
         return View(students);
     }
+
+    
 
     [HttpGet]
     public IActionResult CreateStudent()
@@ -32,7 +40,7 @@ public class StudentController : Controller
             return RedirectToAction("Index", "Student");
         }
 
-        TempData["error"] = "There was an error adding the student.";
+        TempData["error"] = "There was an error adding the Student.";
         return View(student);
     }
 
@@ -59,5 +67,20 @@ public class StudentController : Controller
 
         TempData["error"] = "Error.";
         return View(student);
+    }
+
+    [HttpPost]
+    public IActionResult Delete(int id)
+    {
+        _studentService.DeleteStudent(id);
+        TempData["success"] = "Student deleted successfully!";
+        return RedirectToAction("Index");
+    }
+
+
+    public IActionResult Search(string keyword)
+    {
+        var students = _studentService.SearchStudents(keyword);
+        return View("Index", students);
     }
 }

@@ -148,3 +148,5 @@ C:\Users\Admin\source\repos\SISM1\StudentManager\obj\Debug\net8.0\refint\Student
 C:\Users\Admin\source\repos\SISM1\StudentManager\obj\Debug\net8.0\StudentManager.pdb
 C:\Users\Admin\source\repos\SISM1\StudentManager\obj\Debug\net8.0\StudentManager.genruntimeconfig.cache
 C:\Users\Admin\source\repos\SISM1\StudentManager\obj\Debug\net8.0\ref\StudentManager.dll
+E:\ASP.NET_MVC\SISM\StudentManager\bin\Debug\net8.0\Castle.Core.dll
+E:\ASP.NET_MVC\SISM\StudentManager\bin\Debug\net8.0\Moq.dll

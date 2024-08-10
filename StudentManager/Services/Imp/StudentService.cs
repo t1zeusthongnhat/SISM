@@ -72,5 +72,36 @@ namespace StudentManager.Services.Imp
             var students = GetAllStudents();
             return students.Count;
         }
+
+        public void DeleteStudent(int id)
+        {
+
+            var students = GetAllStudents();
+            var studentToRemove = students.FirstOrDefault(s => s.Id == id);
+            if (studentToRemove != null)
+            {
+                students.Remove(studentToRemove);
+                File.WriteAllText(_filePath, JsonConvert.SerializeObject(students));
+            }
+        }
+
+         public List<Student> SearchStudents(string keyword)
+        {
+        var students = GetAllStudents();
+        return students.Where(s => 
+            s.StudentName.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+            s.Gender.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+            s.Email.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+            s.Address.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+            s.Phone.Contains(keyword, StringComparison.OrdinalIgnoreCase))
+            .ToList();
+        }
+        public List<Student> GetStudentsPaged(int pageNumber, int pageSize)
+        {
+            return GetAllStudents()
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+        }
     }
 }

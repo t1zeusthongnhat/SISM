@@ -1,4 +1,6 @@
-﻿namespace StudentManager.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace StudentManager.Models
 {
     public class Student
     {
@@ -8,7 +10,7 @@
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Gender { get; set; }
-        public DateTime? Birthday { get; set; } // Nullable DateTime for Birthday
+        public DateTime Birthday { get; set; } // Nullable DateTime for Birthday
 
     }
 }

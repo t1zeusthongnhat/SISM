@@ -25,25 +25,21 @@ namespace StudentManager.Controllers
         [HttpPost]
         public IActionResult Index(string username, string password, string email = null)
         {
-            // Phân biệt hành động dựa trên sự có mặt của tham số email
             if (email == null)
             {
                 // Xử lý đăng nhập
                 var user = _userService.GetUser(username);
-                if (user != null)
+                if (user != null && user.Password == password)
                 {
-                    if (user.Password == password)
+                    if (user.Status == "Active")
                     {
-                        if (user.Status == "Active")
-                        {
-                            TempData["success"] = "Logged in successfully!";
-                            return RedirectToAction("Index", "Home");
-                        }
-                        else if (user.Status == "Deactive")
-                        {
-                            TempData["error"] = "Your account has been blocked!!!";
-                            return View();
-                        }
+                        TempData["success"] = "Logged in successfully!";
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else if (user.Status == "Deactive")
+                    {
+                        TempData["error"] = "Your account has been blocked!!!";
+                        return View();
                     }
                 }
 
@@ -70,7 +66,8 @@ namespace StudentManager.Controllers
                 {
                     Username = username,
                     Email = email,
-                    Password = password // Nên mã hóa mật khẩu trước khi lưu trữ
+                    Password = password, // Nên mã hóa mật khẩu trước khi lưu trữ
+                    Status = "Active"   // Tự động đặt trạng thái là "Active"
                 };
 
                 _userService.CreateUser(newUser);

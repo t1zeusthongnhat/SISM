@@ -7,7 +7,7 @@
 <!-- SIDEBAR -->
 <section id="sidebar">
     <a asp-controller="Home" asp-action="Index" class="brand">
-        <img class="bx bxs-smile png-stu" src="~/images/LogoBTEC-1.png" alt="Alternate Text" />
+        <img class="bx bxs-smile png-stu" src="~/images/LogoBTEC-1.png" alt="Logo" />
         <span class="text text-png">Student Management</span>
     </a>
     <ul class="side-menu top">
@@ -57,12 +57,6 @@
     <!-- NAVBAR -->
     <nav>
         <i class='bx bx-menu'></i>
-        <form action="#">
-            <div class="form-input">
-                <input type="search" placeholder="Search...">
-                <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
-            </div>
-        </form>
         <input type="checkbox" id="switch-mode" hidden>
         <label for="switch-mode" class="switch-mode"></label>
         <a href="#" class="notification">
@@ -78,7 +72,7 @@
     <main>
         <div class="head-title">
             <div class="left">
-                <h1>Dashboard</h1>
+                <h1>Student Management</h1>
                 <ul class="breadcrumb">
                     <li>
                         <a href="#">Dashboard</a>
@@ -88,27 +82,12 @@
                         <a class="active" href="#">Student Management</a>
                     </li>
                 </ul>
+                <form class="form-inline my-2 my-lg-0" asp-controller="Student" asp-action="Search" method="get">
+                    <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
             </div>
-            <a asp-controller="Student" asp-action="CreateStudent" class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#addnewUser">Add new</a>
-        </div>
-
-        <!-- Modal add new user -->
-        <div class="modal fade" id="addnewUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
+            <a asp-controller="Student" asp-action="CreateStudent" class="btn btn-success" type="button">Add new</a>
         </div>
 
         <div class="content">
@@ -126,43 +105,52 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var student in Model)
+                    @if (!Model.Any())
                     {
-                        <tr style="vertical-align: middle;">
-                            <td>@student.Id</td>
-                            <td>@student.StudentName</td>
-                            <td>@student.Email</td>
-                            <td>@student.Address</td>
-                            <td>@student.Phone</td>
-                            <td>@student.Gender</td>
-                            <td>@student.Birthday</td>
-                            <td>
-                                <div class="d-flex">
-                                    <a asp-controller="Student" asp-action="EditStudent" asp-route-id="@student.Id" class="btn btn-primary mr-2">Edit</a>
-                                    <button class="btn btn-warning">Delete</button>
-                                </div>
-                            </td>
+                        <tr>
+                            <td colspan="8" class="text-center">No results found for your search.</td>
                         </tr>
+                    }
+                    else
+                    {
+                        @foreach (var student in Model)
+                        {
+                            <tr style="vertical-align: middle;">
+                                <td>@student.Id</td>
+                                <td>@student.StudentName</td>
+                                <td>@student.Email</td>
+                                <td>@student.Address</td>
+                                <td>@student.Phone</td>
+                                <td>@student.Gender</td>
+                                <td>@student.Birthday.ToString("dd/MM/yyyy")</td>
+                                <td>
+                                    <div class="d-flex">
+                                        <a asp-controller="Student" asp-action="EditStudent" asp-route-id="@student.Id" class="btn btn-primary mr-2">Edit</a>
+                                        <form asp-controller="Student" asp-action="Delete" method="post" style="display:inline;">
+                                            <input type="hidden" name="id" value="@student.Id" />
+                                            <button type="submit" class="btn btn-warning">Delete</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
                     }
                 </tbody>
             </table>
 
-            <nav aria-label="Page navigation example" style="background-color:Background ">
+            <nav id="pagination" aria-label="Page navigation example">
                 <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
+                    <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
+                        <a class="page-link" asp-action="Index" asp-route-pageNumber="@(ViewBag.CurrentPage - 1)">Previous</a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
+                    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                    {
+                        <li class="page-item @(ViewBag.CurrentPage == i ? "active" : "")">
+                            <a class="page-link" asp-action="Index" asp-route-pageNumber="@i">@i</a>
+                        </li>
+                    }
+                    <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
+                        <a class="page-link" asp-action="Index" asp-route-pageNumber="@(ViewBag.CurrentPage + 1)">Next</a>
                     </li>
                 </ul>
             </nav>

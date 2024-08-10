@@ -9,5 +9,8 @@ namespace StudentManager.Services
         public void AddStudent(Student student);
         Student GetStudentById(int id);
         void UpdateStudent(Student student);
+        void DeleteStudent(int id);
+        List<Student> SearchStudents(string keyword);
+        List<Student> GetStudentsPaged(int pageNumber, int pageSize);
     }
 }
