@@ -11,6 +11,11 @@ namespace StudentManager.Services
 
         User GetUserById(int id);
         void UpdateUser(User user);
+        void DeleteUsers(int id);
+        List<User> SearchUsers(string keyword);
+        List<User> GetUsersPaged(int pageNumber, int pageSize);
+        int GetUsersCount();
+        
 
 
 

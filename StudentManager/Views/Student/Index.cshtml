@@ -37,12 +37,7 @@
         </li>
     </ul>
     <ul class="side-menu">
-        <li>
-            <a>
-                <i class='bx bxs-cog'></i>
-                <span class="text">Settings</span>
-            </a>
-        </li>
+       
         <li>
             <a class="logout" asp-controller="Login" asp-action="Index">
                 <i class='bx bxs-log-out-circle'></i>
@@ -79,13 +74,14 @@
                     </li>
                     <li><i class='bx bx-chevron-right'></i></li>
                     <li>
-                        <a class="active" href="#">Student Management</a>
+                        <a class="active" asp-controller="Student" asp-action="Index">Student Management</a>
                     </li>
+                    <form class="form-inline my-2 my-lg-0" asp-controller="Student" asp-action="Search" method="get">
+                        <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" asp-controller="Student" asp-action="Search" method="get">
-                    <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                
             </div>
             <a asp-controller="Student" asp-action="CreateStudent" class="btn btn-success" type="button">Add new</a>
         </div>
@@ -138,12 +134,22 @@
                 </tbody>
             </table>
 
-            <nav id="pagination" aria-label="Page navigation example">
+            @{
+                int startPage = Math.Max(1, ViewBag.CurrentPage - 1);
+                int endPage = Math.Min(ViewBag.TotalPages, startPage + 2);
+
+                if (endPage - startPage < 2)
+                {
+                    startPage = Math.Max(1, endPage - 2);
+                }
+            }
+
+            <nav aria-label="Page navigation example" style=" background-color: #EEEEEE; display: flex; justify-content: center; margin-top: 10px;" id="pagination">
                 <ul class="pagination">
                     <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
                         <a class="page-link" asp-action="Index" asp-route-pageNumber="@(ViewBag.CurrentPage - 1)">Previous</a>
                     </li>
-                    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                    @for (int i = startPage; i <= endPage; i++)
                     {
                         <li class="page-item @(ViewBag.CurrentPage == i ? "active" : "")">
                             <a class="page-link" asp-action="Index" asp-route-pageNumber="@i">@i</a>

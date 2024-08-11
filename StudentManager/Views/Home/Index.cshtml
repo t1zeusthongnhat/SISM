@@ -51,12 +51,7 @@
 
         </ul>
         <ul class="side-menu">
-            <li>
-                <a>
-                    <i class='bx bxs-cog'></i>
-                    <span class="text">Settings</span>
-                </a>
-            </li>
+           
             <li>
                 <a class="logout" asp-controller="Login" asp-action="Index">
                     <i class='bx bxs-log-out-circle'></i>
@@ -72,13 +67,6 @@
         <!-- NAVBAR -->
         <nav>
             <i class='bx bx-menu'></i>
-
-            <form method="post">
-                <div class="form-input">
-                    <input type="search" placeholder="Search...">
-                    <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
-                </div>
-            </form>
             <input type="checkbox" id="switch-mode" hidden>
             <label for="switch-mode" class="switch-mode"></label>
             <a class="notification">
@@ -116,11 +104,20 @@
                         <p>Course</p>
                     </span>
                 </li>
+               
                 <li>
                     <i class='bx bxs-group'></i>
                     <span class="text">
                         <h3>@ViewBag.StudentCount</h3>
                         <p>Student</p>
+                    </span>
+                </li>
+
+                <li>
+                    <i class='bx bx-user'></i>
+                    <span class="text">
+                        <h3>@ViewBag.UserCount</h3>
+                        <p>User</p>
                     </span>
                 </li>
             </ul>

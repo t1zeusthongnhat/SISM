@@ -5,6 +5,18 @@ namespace StudentManager.Services.Imp
 {
     public class CourseService : ICourseService
     {
+
+        public void DeleteCourse(int id)
+        {
+
+            var courses = gettDataCourse();
+            var courseToRemove = courses.FirstOrDefault(s => s.Id == id);
+            if (courseToRemove != null)
+            {
+                courses.Remove(courseToRemove);
+                File.WriteAllText(_filePath, JsonConvert.SerializeObject(courses));
+            }
+        } 
         private readonly string _filePath;
         public CourseService()
         {
@@ -56,6 +68,30 @@ namespace StudentManager.Services.Imp
                 courses[index] = course; // Cập nhật thông tin khóa học tại vị trí index
                 File.WriteAllText(_filePath, JsonConvert.SerializeObject(courses));
             }
+        }
+
+        public List<Course> SearchCourses(string keyword)
+        {
+            var courses = gettDataCourse();
+
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                return new List<Course>(); // Trả về danh sách rỗng nếu keyword trống
+            }
+
+            return courses.Where(s =>
+                s.Name.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                s.Status.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                s.Description.Contains(keyword, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
+
+        public List<Course> GetCoursesPaged(int pageNumber, int pageSize)
+        {
+            return gettDataCourse()
+              .Skip((pageNumber - 1) * pageSize)
+              .Take(pageSize)
+              .ToList();
         }
     }
 }

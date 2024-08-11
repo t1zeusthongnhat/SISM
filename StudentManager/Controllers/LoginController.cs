@@ -33,6 +33,8 @@ namespace StudentManager.Controllers
                 {
                     if (user.Status == "Active")
                     {
+                        
+
                         TempData["success"] = "Logged in successfully!";
                         return RedirectToAction("Index", "Home");
                     }
@@ -66,7 +68,7 @@ namespace StudentManager.Controllers
                 {
                     Username = username,
                     Email = email,
-                    Password = password, // Nên mã hóa mật khẩu trước khi lưu trữ
+                    Password = password, // Mã hóa mật khẩu trước khi lưu trữ
                     Status = "Active"   // Tự động đặt trạng thái là "Active"
                 };
 

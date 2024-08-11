@@ -5,6 +5,7 @@ namespace StudentManager.Services.Imp
 {
     public class UserService : IUserService
     {
+       
         private readonly string _filePath;
         public UserService()
         {
@@ -75,6 +76,47 @@ namespace StudentManager.Services.Imp
             }
         }
 
+        public void DeleteUsers(int id)
+        {
+            var users = GetUserss();
+            var userRemove = users.FirstOrDefault(s => s.Id == id);
+            if (userRemove != null)
+            {
+                users.Remove(userRemove);
+                File.WriteAllText(_filePath, JsonConvert.SerializeObject(users));
+            }
+        }
+
+        public List<User> SearchUsers(string keyword)
+        {
+            var users = GetUserss();
+
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                return new List<User>(); // Trả về danh sách rỗng nếu keyword trống
+            }
+
+            return users.Where(s =>
+                s.Username.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                s.Email.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                s.Status.Contains(keyword, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
+
+        public List<User> GetUsersPaged(int pageNumber, int pageSize)
+        {
+            return GetUserss()
+               .Skip((pageNumber - 1) * pageSize)
+               .Take(pageSize)
+               .ToList();
+        }
+
+        public int GetUsersCount()
+        {
+            var users = GetUserss();
+            return users.Count;
+        }
+      
 
     }
 }

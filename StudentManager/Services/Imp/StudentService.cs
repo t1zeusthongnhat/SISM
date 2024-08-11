@@ -85,17 +85,24 @@ namespace StudentManager.Services.Imp
             }
         }
 
-         public List<Student> SearchStudents(string keyword)
+        public List<Student> SearchStudents(string keyword)
         {
-        var students = GetAllStudents();
-        return students.Where(s => 
-            s.StudentName.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
-            s.Gender.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
-            s.Email.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
-            s.Address.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
-            s.Phone.Contains(keyword, StringComparison.OrdinalIgnoreCase))
-            .ToList();
+            var students = GetAllStudents();
+
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                return new List<Student>(); // Trả về danh sách rỗng nếu keyword trống
+            }
+
+            return students.Where(s =>
+                s.StudentName.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                s.Gender.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                s.Email.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                s.Address.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
+                s.Phone.Contains(keyword, StringComparison.OrdinalIgnoreCase))
+                .ToList();
         }
+
         public List<Student> GetStudentsPaged(int pageNumber, int pageSize)
         {
             return GetAllStudents()

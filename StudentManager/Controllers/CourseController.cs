@@ -8,14 +8,23 @@ namespace StudentManager.Controllers
 {
     public class CourseController : Controller
     {
+
         private ICourseService _courseService;
         public CourseController(ICourseService courseService)
         {
             _courseService = courseService;
         }
-        public IActionResult Index()
+        public IActionResult Index(int pageNumber = 1, int pageSize = 4)
         {
-            var courses = _courseService.gettDataCourse();
+
+
+            var courses = _courseService.GetCoursesPaged(pageNumber, pageSize);
+            var totalCourses = _courseService.GetCourseCount();
+            var totalPages = (int)Math.Ceiling((double)totalCourses / pageSize);
+
+            ViewBag.CurrentPage = pageNumber;
+            ViewBag.TotalPages = totalPages;
+
             return View(courses);
         }
         [HttpGet]
@@ -36,7 +45,16 @@ namespace StudentManager.Controllers
 
             TempData["error"] = "There was an error adding the Course.";
             return View(course);
-        } 
+        }
+
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            _courseService.DeleteCourse(id);
+            TempData["success"] = "Course deleted successfully!";
+            return RedirectToAction("Index");
+        }
         [HttpGet]
         public IActionResult EditCourse(int id)
         {
@@ -61,6 +79,24 @@ namespace StudentManager.Controllers
 
             TempData["error"] = "Error.";
             return View(course);
+        }
+
+        public IActionResult Search(string keyword, int pageNumber = 1, int pageSize = 4)
+        {
+            var courses = _courseService.SearchCourses(keyword);
+            var totalcourses = courses.Count;
+            var totalPages = (int)Math.Ceiling((double)totalcourses / pageSize);
+
+            ViewBag.CurrentPage = pageNumber;
+            ViewBag.TotalPages = totalPages;
+
+            // Phân trang cho danh sách kết quả tìm kiếm
+            var pagedStudents = courses
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            return View("Index", pagedStudents);
         }
     }
 }

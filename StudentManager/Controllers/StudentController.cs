@@ -10,8 +10,11 @@ public class StudentController : Controller
         _studentService = studentService;
     }
 
-    public IActionResult Index(int pageNumber = 1, int pageSize = 4)
+
+    public IActionResult Index(int pageNumber = 1, int pageSize = 6)
     {
+       
+
         var students = _studentService.GetStudentsPaged(pageNumber, pageSize);
         var totalStudents = _studentService.GetStudentCount();
         var totalPages = (int)Math.Ceiling((double)totalStudents / pageSize);
@@ -78,9 +81,21 @@ public class StudentController : Controller
     }
 
 
-    public IActionResult Search(string keyword)
+    public IActionResult Search(string keyword, int pageNumber = 1, int pageSize = 4)
     {
         var students = _studentService.SearchStudents(keyword);
-        return View("Index", students);
+        var totalStudents = students.Count;
+        var totalPages = (int)Math.Ceiling((double)totalStudents / pageSize);
+
+        ViewBag.CurrentPage = pageNumber;
+        ViewBag.TotalPages = totalPages;
+
+        // Phân trang cho danh sách kết quả tìm kiếm
+        var pagedStudents = students
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+
+        return View("Index", pagedStudents);
     }
 }
