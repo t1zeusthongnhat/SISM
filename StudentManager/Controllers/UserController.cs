@@ -16,7 +16,7 @@ namespace StudentManager.Controllers
         }
 
 
-        public IActionResult Index(int pageNumber = 1, int pageSize = 4)
+        public IActionResult Index(int pageNumber = 1, int pageSize = 5)
         {
 
 

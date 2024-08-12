@@ -29,14 +29,36 @@ namespace StudentManager.Controllers
             {
                 // Xử lý đăng nhập
                 var user = _userService.GetUser(username);
+
                 if (user != null && user.Password == password)
                 {
                     if (user.Status == "Active")
-                    {
+                    { 
+                        if(user.Role == "Admin")
+                        {
+                            TempData["success"] = "Admin Logged in successfully!";
+                            return RedirectToAction("Index", "Home");
+                        }
+                        else
+                        {
+                             if (user.Role == "Student" || user.Role == "Teacher")
+                            {
+                                TempData["success"] = "Logged in successfully!";
+                                return RedirectToAction("onlyViewStudent", "Student");
+                            }
+                            else if (!user.Role.Equals("Admin"))
+                            {
+                                TempData["error"] = "Your account isn't Admin!!!";
+                                return View();
+                            }
+                            
+
+                        }
+
+                        
                         
 
-                        TempData["success"] = "Logged in successfully!";
-                        return RedirectToAction("Index", "Home");
+                      
                     }
                     else if (user.Status == "Deactive")
                     {

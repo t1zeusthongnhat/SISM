@@ -3,6 +3,7 @@ using StudentManager.Models;
 using StudentManager.Services;
 using StudentManager.Services.Imp;
 using System.Reflection;
+using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 
 namespace StudentManager.Controllers
 {
@@ -14,7 +15,20 @@ namespace StudentManager.Controllers
         {
             _courseService = courseService;
         }
-        public IActionResult Index(int pageNumber = 1, int pageSize = 4)
+
+        public IActionResult onlyViewCourse(int pageNumber = 1, int pageSize = 5)
+        {
+
+            var courses = _courseService.GetCoursesPaged(pageNumber, pageSize);
+            var totalCourses = _courseService.GetCourseCount();
+            var totalPages = (int)Math.Ceiling((double)totalCourses / pageSize);
+
+            ViewBag.CurrentPage = pageNumber;
+            ViewBag.TotalPages = totalPages;
+
+            return View(courses);
+        }
+        public IActionResult Index(int pageNumber = 1, int pageSize = 5)
         {
 
 
@@ -98,5 +112,24 @@ namespace StudentManager.Controllers
 
             return View("Index", pagedStudents);
         }
+
+        public IActionResult ViewSearch(string keyword, int pageNumber = 1, int pageSize = 4)
+        {
+            var courses = _courseService.SearchCourses(keyword);
+            var totalcourses = courses.Count;
+            var totalPages = (int)Math.Ceiling((double)totalcourses / pageSize);
+
+            ViewBag.CurrentPage = pageNumber;
+            ViewBag.TotalPages = totalPages;
+
+            // Phân trang cho danh sách kết quả tìm kiếm
+            var pagedStudents = courses
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            return View("onlyViewCourse", pagedStudents);
+        }
+
     }
 }

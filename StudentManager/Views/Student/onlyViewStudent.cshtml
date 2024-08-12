@@ -6,43 +6,28 @@
 
 <!-- SIDEBAR -->
 <section id="sidebar">
-    <a asp-controller="Home" asp-action="Index" class="brand">
-        <img class="bx bxs-smile png-stu" src="~/images/LogoBTEC-1.png" alt="Logo" />
-        <span class="text text-png">Student List</span>
+    <a asp-controller="Student" asp-action="onlyViewStudent" class="brand">
+        <img class="bx bxs-smile png-stu" src="~/images/LogoBTEC-1.png" alt="Alternate Text" />
+        <span class="text text-png">SISM - Student</span>
     </a>
     <ul class="side-menu top">
-        <li>
-            <a asp-controller="Home" asp-action="Index">
-                <i class='bx bxs-dashboard'></i>
-                <span class="text">Dashboard</span>
-            </a>
-        </li>
+       
         <li class="active">
-            <a asp-controller="Student" asp-action="Index">
+            <a asp-controller="Student" asp-action="onlyViewStudent">
                 <i class='bx bxs-user'></i>
-                <span class="text">Student List</span>
+                <span class="text">Student Information</span>
             </a>
         </li>
         <li>
-            <a asp-controller="Course" asp-action="Index">
+            <a asp-controller="Course" asp-action="onlyViewCourse">
                 <i class='bx bxs-book'></i>
-                <span class="text">Course List</span>
+                <span class="text">Course Information</span>
             </a>
         </li>
-        <li>
-            <a asp-controller="User" asp-action="Index">
-                <i class='bx bxs-user-pin'></i>
-                <span class="text">User List</span>
-            </a>
-        </li>
+       
     </ul>
     <ul class="side-menu">
-        <li>
-            <a>
-                <i class='bx bxs-cog'></i>
-                <span class="text">Settings</span>
-            </a>
-        </li>
+       
         <li>
             <a class="logout" asp-controller="Login" asp-action="Index">
                 <i class='bx bxs-log-out-circle'></i>
@@ -79,10 +64,10 @@
                     </li>
                     <li><i class='bx bx-chevron-right'></i></li>
                     <li>
-                        <a class="active" href="#">Student List</a>
+                        <a class="active" asp-action="onlyViewStudent">Student List</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0" asp-controller="Student" asp-action="Search" method="get">
+                <form class="form-inline my-2 my-lg-0" asp-controller="Student" asp-action="ViewSearch" method="get">
                     <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
@@ -101,7 +86,6 @@
                         <th scope="col">Phone</th>
                         <th scope="col">Gender</th>
                         <th scope="col">Birthday</th>
-                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -140,19 +124,19 @@
                 }
             }
 
-            <nav aria-label="Page navigation example" style="background-color: #FFFFFF; display: flex; justify-content: center; margin-top: 10px;" id="pagination">
+            <nav aria-label="Page navigation example" style=" background-color: #EEEEEE; display: flex; justify-content: center; margin-top: 10px;" id="pagination">
                 <ul class="pagination">
                     <li class="page-item @(ViewBag.CurrentPage == 1 ? "disabled" : "")">
-                        <a class="page-link" asp-action="Index" asp-route-pageNumber="@(ViewBag.CurrentPage - 1)">Previous</a>
+                        <a class="page-link" asp-action="onlyViewStudent" asp-route-pageNumber="@(ViewBag.CurrentPage - 1)">Previous</a>
                     </li>
                     @for (int i = startPage; i <= endPage; i++)
                     {
                         <li class="page-item @(ViewBag.CurrentPage == i ? "active" : "")">
-                            <a class="page-link" asp-action="Index" asp-route-pageNumber="@i">@i</a>
+                            <a class="page-link" asp-action="onlyViewStudent" asp-route-pageNumber="@i">@i</a>
                         </li>
                     }
                     <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "")">
-                        <a class="page-link" asp-action="Index" asp-route-pageNumber="@(ViewBag.CurrentPage + 1)">Next</a>
+                        <a class="page-link" asp-action="onlyViewStudent" asp-route-pageNumber="@(ViewBag.CurrentPage + 1)">Next</a>
                     </li>
                 </ul>
             </nav>

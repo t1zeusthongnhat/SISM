@@ -74,8 +74,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/ASP.NET_MVC/SISM/StudentManager/Views/Student/OnlyViewStudent.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxPbmx5Vmlld1N0dWRlbnQuY3NodG1s
+[E:/ASP.NET_MVC/SISM/StudentManager/Views/Student/onlyViewStudent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudFxvbmx5Vmlld1N0dWRlbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/ASP.NET_MVC/SISM/StudentManager/Views/User/createUser.cshtml]
@@ -88,10 +88,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/ASP.NET_MVC/SISM/StudentManager/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[E:/ASP.NET_MVC/SISM/StudentManager/Views/User/onlyViewUser.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxvbmx5Vmlld1VzZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/ASP.NET_MVC/SISM/StudentManager/Views/_ViewImports.cshtml]

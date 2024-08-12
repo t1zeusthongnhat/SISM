@@ -46,6 +46,6 @@ app.UseSession();
 app.MapControllerRoute(
     name: "default",
     
-    pattern: "{controller=Student}/{action=Index}/{id?}");
+    pattern: "{controller=Course}/{action=onlyViewCourse}/{id?}");
 
 app.Run();

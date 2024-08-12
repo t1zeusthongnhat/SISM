@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StudentManager.Models;
 using StudentManager.Services;
+using StudentManager.Services.Imp;
 
 public class StudentController : Controller
 {
@@ -10,8 +11,37 @@ public class StudentController : Controller
         _studentService = studentService;
     }
 
+    public IActionResult onlyViewStudent(int pageNumber = 1, int pageSize = 5)
+    {
 
-    public IActionResult Index(int pageNumber = 1, int pageSize = 6)
+        var students = _studentService.GetStudentsPaged(pageNumber, pageSize);
+        var totalStudent = _studentService.GetStudentCount();
+        var totalPages = (int)Math.Ceiling((double)totalStudent / pageSize);
+
+        ViewBag.CurrentPage = pageNumber;
+        ViewBag.TotalPages = totalPages;
+
+        return View(students);
+    }
+    public IActionResult ViewSearch(string keyword, int pageNumber = 1, int pageSize = 4)
+    {
+        var students  = _studentService.SearchStudents(keyword);
+        var totalStudent = students.Count;
+        var totalPages = (int)Math.Ceiling((double)totalStudent / pageSize);
+
+        ViewBag.CurrentPage = pageNumber;
+        ViewBag.TotalPages = totalPages;
+
+        // Phân trang cho danh sách kết quả tìm kiếm
+        var pagedStudents = students
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+
+        return View("onlyViewStudent", pagedStudents);
+    }
+
+    public IActionResult Index(int pageNumber = 1, int pageSize = 5)
     {
        
 
