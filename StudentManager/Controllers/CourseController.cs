@@ -18,25 +18,22 @@ namespace StudentManager.Controllers
             _courseService = courseService;
         }
 
-        public IActionResult onlyViewCourse(int pageNumber = 1, int pageSize = 5)
+        public IActionResult onlyViewCourse(int pageNumber = 1, int pageSize = 4)
         {
-
             var courses = _courseService.GetCoursesPaged(pageNumber, pageSize);
-            var totalCourses = _courseService.GetCourseCount();
-            var totalPages = (int)Math.Ceiling((double)totalCourses / pageSize);
+            var totalCourse = _courseService.GetCourseCount();
+            var totalPages = (int)Math.Ceiling((double)totalCourse / pageSize);
 
             ViewBag.CurrentPage = pageNumber;
             ViewBag.TotalPages = totalPages;
 
             return View(courses);
         }
-        public IActionResult Index(int pageNumber = 1, int pageSize = 5)
+        public IActionResult Index(int pageNumber = 1, int pageSize = 4)
         {
-
-
             var courses = _courseService.GetCoursesPaged(pageNumber, pageSize);
-            var totalCourses = _courseService.GetCourseCount();
-            var totalPages = (int)Math.Ceiling((double)totalCourses / pageSize);
+            var totalCourse = _courseService.GetCourseCount();
+            var totalPages = (int)Math.Ceiling((double)totalCourse / pageSize);
 
             ViewBag.CurrentPage = pageNumber;
             ViewBag.TotalPages = totalPages;
@@ -99,39 +96,42 @@ namespace StudentManager.Controllers
 
         public IActionResult Search(string keyword, int pageNumber = 1, int pageSize = 4)
         {
-            var courses = _courseService.SearchCourses(keyword);
-            var totalcourses = courses.Count;
-            var totalPages = (int)Math.Ceiling((double)totalcourses / pageSize);
+            var coursess = _courseService.SearchCourses(keyword);
+            var totalCourse = coursess.Count;
+            var totalPages = (int)Math.Ceiling((double)totalCourse / pageSize);
 
             ViewBag.CurrentPage = pageNumber;
             ViewBag.TotalPages = totalPages;
+            ViewBag.SearchKeyword = keyword; // Lưu trữ từ khóa tìm kiếm trong ViewBag để sử dụng trong view
 
             // Phân trang cho danh sách kết quả tìm kiếm
-            var pagedStudents = courses
+            var oagedTotal = coursess
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
 
-            return View("Index", pagedStudents);
+            return View("Index", oagedTotal);
         }
 
         public IActionResult ViewSearch(string keyword, int pageNumber = 1, int pageSize = 4)
         {
-            var courses = _courseService.SearchCourses(keyword);
-            var totalcourses = courses.Count;
-            var totalPages = (int)Math.Ceiling((double)totalcourses / pageSize);
+            var coursess = _courseService.SearchCourses(keyword);
+            var totalCourse = coursess.Count;
+            var totalPages = (int)Math.Ceiling((double)totalCourse / pageSize);
 
             ViewBag.CurrentPage = pageNumber;
             ViewBag.TotalPages = totalPages;
+            ViewBag.SearchKeyword = keyword; // Lưu trữ từ khóa tìm kiếm trong ViewBag để sử dụng trong view
 
             // Phân trang cho danh sách kết quả tìm kiếm
-            var pagedStudents = courses
+            var oagedTotal = coursess
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
 
-            return View("onlyViewCourse", pagedStudents);
+            return View("onlyViewCourse", oagedTotal);
         }
+
 
     }
 }

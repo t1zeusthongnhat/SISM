@@ -35,7 +35,11 @@ namespace StudentManager.Services.Imp
             var course = JsonConvert.DeserializeObject<List<Course>>(jsonData);
             return course.Count;
         }
-
+        public int CountCourse()
+        {
+            var course = gettDataCourse();
+            return course.Count;
+        }
         public void AddCourse(Course course)
         {
             var courses = gettDataCourse();

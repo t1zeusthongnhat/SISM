@@ -84,7 +84,7 @@ namespace StudentManager.Controllers
         }
 
 
-        public IActionResult Search(string keyword, int pageNumber = 1, int pageSize = 1)
+        public IActionResult Search(string keyword, int pageNumber = 1, int pageSize = 4)
         {
             var users = _userService.SearchUsers(keyword);
             var totalusers = users.Count;

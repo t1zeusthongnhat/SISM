@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using StudentManager.Models;
 using StudentManager.Services;
 using StudentManager.Services.Imp;
+using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 
 [Authorize]
 public class StudentController : Controller
@@ -14,12 +15,11 @@ public class StudentController : Controller
         _studentService = studentService;
     }
 
-    public IActionResult onlyViewStudent(int pageNumber = 1, int pageSize = 5)
+    public IActionResult onlyViewStudent(int pageNumber = 1, int pageSize = 4)
     {
-
         var students = _studentService.GetStudentsPaged(pageNumber, pageSize);
-        var totalStudent = _studentService.GetStudentCount();
-        var totalPages = (int)Math.Ceiling((double)totalStudent / pageSize);
+        var totalUsers = _studentService.GetStudentCount();
+        var totalPages = (int)Math.Ceiling((double)totalUsers / pageSize);
 
         ViewBag.CurrentPage = pageNumber;
         ViewBag.TotalPages = totalPages;
@@ -28,29 +28,28 @@ public class StudentController : Controller
     }
     public IActionResult ViewSearch(string keyword, int pageNumber = 1, int pageSize = 4)
     {
-        var students  = _studentService.SearchStudents(keyword);
+        var students = _studentService.SearchStudents(keyword);
         var totalStudent = students.Count;
         var totalPages = (int)Math.Ceiling((double)totalStudent / pageSize);
 
         ViewBag.CurrentPage = pageNumber;
         ViewBag.TotalPages = totalPages;
+        ViewBag.SearchKeyword = keyword; // Lưu trữ từ khóa tìm kiếm trong ViewBag để sử dụng trong view
 
         // Phân trang cho danh sách kết quả tìm kiếm
-        var pagedStudents = students
+        var pagedTotal = students
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
             .ToList();
 
-        return View("onlyViewStudent", pagedStudents);
+        return View("onlyViewStudent", pagedTotal);
     }
 
-    public IActionResult Index(int pageNumber = 1, int pageSize = 5)
+    public IActionResult Index(int pageNumber = 1, int pageSize = 4)
     {
-       
-
         var students = _studentService.GetStudentsPaged(pageNumber, pageSize);
-        var totalStudents = _studentService.GetStudentCount();
-        var totalPages = (int)Math.Ceiling((double)totalStudents / pageSize);
+        var totalUsers = _studentService.GetStudentCount();
+        var totalPages = (int)Math.Ceiling((double)totalUsers / pageSize);
 
         ViewBag.CurrentPage = pageNumber;
         ViewBag.TotalPages = totalPages;
@@ -58,7 +57,7 @@ public class StudentController : Controller
         return View(students);
     }
 
-    
+
 
     [HttpGet]
     public IActionResult CreateStudent()
@@ -116,18 +115,19 @@ public class StudentController : Controller
     public IActionResult Search(string keyword, int pageNumber = 1, int pageSize = 4)
     {
         var students = _studentService.SearchStudents(keyword);
-        var totalStudents = students.Count;
-        var totalPages = (int)Math.Ceiling((double)totalStudents / pageSize);
+        var totalStudent = students.Count;
+        var totalPages = (int)Math.Ceiling((double)totalStudent / pageSize);
 
         ViewBag.CurrentPage = pageNumber;
         ViewBag.TotalPages = totalPages;
+        ViewBag.SearchKeyword = keyword; // Lưu trữ từ khóa tìm kiếm trong ViewBag để sử dụng trong view
 
         // Phân trang cho danh sách kết quả tìm kiếm
-        var pagedStudents = students
+        var pagedTotal = students
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
             .ToList();
 
-        return View("Index", pagedStudents);
+        return View("Index", pagedTotal);
     }
 }

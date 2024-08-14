@@ -11,7 +11,7 @@ namespace StudentManager.Services
         Course GetCourseById(int id);
         void UpdateCourse(Course course);
         void DeleteCourse(int id);
-
+        int CountCourse();
         List<Course> SearchCourses(string keyword);
         List<Course> GetCoursesPaged(int pageNumber, int pageSize);
     }
