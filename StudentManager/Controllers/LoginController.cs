@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using Microsoft.AspNetCore.Http;
-using System.IO;
-using StudentManager.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
 using StudentManager.Services;
+using StudentManager.Models;
 
 namespace StudentManager.Controllers
 {
@@ -27,48 +27,52 @@ namespace StudentManager.Controllers
         {
             if (email == null)
             {
-                // Xử lý đăng nhập
                 var user = _userService.GetUser(username);
 
                 if (user != null && user.Password == password)
                 {
                     if (user.Status == "Active")
-                    { 
-                        if(user.Role == "Admin")
+                    {
+                        // Create authentication cookie
+                        var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, user.Username),
+                    new Claim(ClaimTypes.Role, user.Role)
+                };
+
+                        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                        var authProperties = new AuthenticationProperties
                         {
-                            TempData["success"] = "Admin Logged in successfully!";
+                            IsPersistent = true // Remains across sessions
+                        };
+
+                        HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
+
+                        TempData["success"] = "Login successful!";
+
+                        // Redirect based on role
+                        if (user.Role == "Admin")
+                        {
                             return RedirectToAction("Index", "Home");
                         }
-                        else
+                        else if (user.Role == "Student" || user.Role == "Teacher")
                         {
-                             if (user.Role == "Student" || user.Role == "Teacher")
-                            {
-                                TempData["success"] = "Logged in successfully!";
-                                return RedirectToAction("onlyViewStudent", "Student");
-                            }
-                            
-                            
-
+                            return RedirectToAction("onlyViewStudent", "Student");
                         }
-
-                        
-                        
-
-                      
                     }
                     else if (user.Status == "Deactive")
                     {
-                        TempData["error"] = "Your account has been blocked!!!";
+                        TempData["error"] = "Your account has been locked!";
                         return View();
                     }
                 }
 
-                TempData["error"] = "Login information is incorrect.";
+                TempData["error"] = "Incorrect login information.";
                 return View();
             }
             else
             {
-                // Xử lý đăng ký
+                // Handle registration
                 if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
                 {
                     TempData["error"] = "All fields are required.";
@@ -86,15 +90,23 @@ namespace StudentManager.Controllers
                 {
                     Username = username,
                     Email = email,
-                    Password = password, // Mã hóa mật khẩu trước khi lưu trữ
-                    Status = "Active",   // Tự động đặt trạng thái là "Active"
+                    Password = password,
+                    Status = "Active",   // Automatically set status to "Active"
                     Role = "Student"
                 };
 
                 _userService.CreateUser(newUser);
-                TempData["success"] = "Sign Up Success!";
+                TempData["success"] = "Registration successful!";
                 return RedirectToAction("Index");
             }
+        }
+
+        [HttpPost]
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            TempData["success"] = "Logged out successfully!";
+            return RedirectToAction("Index");
         }
     }
 }

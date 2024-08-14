@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StudentManager.Models;
 using StudentManager.Services;
 using StudentManager.Services.Imp;
 
 namespace StudentManager.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
 
@@ -16,13 +18,11 @@ namespace StudentManager.Controllers
         }
 
 
-        public IActionResult Index(int pageNumber = 1, int pageSize = 5)
+        public IActionResult Index(int pageNumber = 1, int pageSize = 4)
         {
-
-
             var users = _userService.GetUsersPaged(pageNumber, pageSize);
-            var totalusers = _userService.GetUsersCount();
-            var totalPages = (int)Math.Ceiling((double)totalusers / pageSize);
+            var totalUsers = _userService.GetUsersCount();
+            var totalPages = (int)Math.Ceiling((double)totalUsers / pageSize);
 
             ViewBag.CurrentPage = pageNumber;
             ViewBag.TotalPages = totalPages;
@@ -56,7 +56,7 @@ namespace StudentManager.Controllers
             var users = _userService.GetUserById(id);
             if(users== null)
             {
-                return NotFound();
+                return View("NotFound");
             }
             return View(users);
         }
@@ -84,7 +84,7 @@ namespace StudentManager.Controllers
         }
 
 
-        public IActionResult Search(string keyword, int pageNumber = 1, int pageSize = 4)
+        public IActionResult Search(string keyword, int pageNumber = 1, int pageSize = 1)
         {
             var users = _userService.SearchUsers(keyword);
             var totalusers = users.Count;
@@ -92,14 +92,15 @@ namespace StudentManager.Controllers
 
             ViewBag.CurrentPage = pageNumber;
             ViewBag.TotalPages = totalPages;
+            ViewBag.SearchKeyword = keyword; // Lưu trữ từ khóa tìm kiếm trong ViewBag để sử dụng trong view
 
             // Phân trang cho danh sách kết quả tìm kiếm
-            var pagedtotalusers = users
+            var pagedTotalUsers = users
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
 
-            return View("Index", pagedtotalusers);
+            return View("Index", pagedTotalUsers);
         }
     }
 }

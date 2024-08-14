@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StudentManager.Models;
 using StudentManager.Services;
 using StudentManager.Services.Imp;
@@ -7,6 +8,7 @@ using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 
 namespace StudentManager.Controllers
 {
+    [Authorize]
     public class CourseController : Controller
     {
 
@@ -75,7 +77,7 @@ namespace StudentManager.Controllers
            var courses = _courseService.GetCourseById(id);
             if(courses == null )
             {
-                return NotFound();
+                return View("NotFound");
             }
             return View(courses);
         }

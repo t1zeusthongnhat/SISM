@@ -2,6 +2,7 @@
 
 using StudentManager.Services.Imp;
 using StudentManager.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,14 @@ builder.Services.AddSession(options =>
 });
 builder.Services.AddHttpContextAccessor();
 
+// Authentication configuration
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Login";
+        options.AccessDeniedPath = "/Login";
+    });
+
 // Đăng ký UserService
 builder.Services.AddTransient<IUserService, UserService>();
 
@@ -27,6 +36,8 @@ builder.Services.AddScoped<ICourseService, CourseService>();
 
 
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -40,6 +51,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 app.UseSession();
 

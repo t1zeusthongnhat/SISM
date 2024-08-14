@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StudentManager.Models;
 using StudentManager.Services;
 using StudentManager.Services.Imp;
 
+[Authorize]
 public class StudentController : Controller
 {
+
     private IStudentService _studentService;
     public StudentController(IStudentService studentService)
     {
@@ -76,14 +79,13 @@ public class StudentController : Controller
         TempData["error"] = "There was an error adding the Student.";
         return View(student);
     }
-
     [HttpGet]
-    public IActionResult EditStudent(int id) // Thêm tham số id
+    public IActionResult EditStudent(int id)
     {
         var student = _studentService.GetStudentById(id);
         if (student == null)
         {
-            return NotFound();
+            return View("NotFound");
         }
         return View(student);
     }
@@ -100,7 +102,7 @@ public class StudentController : Controller
 
         TempData["error"] = "Error.";
         return View(student);
-    }
+    }   
 
     [HttpPost]
     public IActionResult Delete(int id)

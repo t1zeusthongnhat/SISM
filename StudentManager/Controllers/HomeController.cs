@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StudentManager.Models;
 using StudentManager.Services;
 using System.Diagnostics;
@@ -6,6 +7,7 @@ using System.Security.Claims;
 
 namespace StudentManager.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IStudentService _studentService;
