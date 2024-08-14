@@ -11,7 +11,28 @@ allSideMenu.forEach(item => {
 	})
 });
 
-
+<script>
+	$(document).ready(function () {
+		$('form').validate({
+			rules: {
+				Phone: {
+					required: true,
+					digits: true,
+					minlength: 10,
+					maxlength: 10
+				}
+			},
+			messages: {
+				Phone: {
+					required: "Phone number is required.",
+					digits: "Please enter only digits.",
+					minlength: "Phone number must be 10 digits.",
+					maxlength: "Phone number must be 10 digits."
+				}
+			}
+		});
+    });
+</script>
 
 
 // TOGGLE SIDEBAR

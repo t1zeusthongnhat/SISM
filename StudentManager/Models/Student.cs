@@ -8,9 +8,12 @@ namespace StudentManager.Models
         public string StudentName { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
+
+        [Required(ErrorMessage = "Phone number is required.")]
+        [RegularExpression(@"^\d{10}$", ErrorMessage = "Phone number must be 10 digits.")]
         public string Phone { get; set; }
         public string Gender { get; set; }
-        public DateTime Birthday { get; set; } // Nullable DateTime for Birthday
+        public DateTime Birthday { get; set; } 
 
     }
 }

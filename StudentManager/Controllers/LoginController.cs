@@ -46,11 +46,7 @@ namespace StudentManager.Controllers
                                 TempData["success"] = "Logged in successfully!";
                                 return RedirectToAction("onlyViewStudent", "Student");
                             }
-                            else if (!user.Role.Equals("Admin"))
-                            {
-                                TempData["error"] = "Your account isn't Admin!!!";
-                                return View();
-                            }
+                            
                             
 
                         }
@@ -91,7 +87,8 @@ namespace StudentManager.Controllers
                     Username = username,
                     Email = email,
                     Password = password, // Mã hóa mật khẩu trước khi lưu trữ
-                    Status = "Active"   // Tự động đặt trạng thái là "Active"
+                    Status = "Active",   // Tự động đặt trạng thái là "Active"
+                    Role = "Student"
                 };
 
                 _userService.CreateUser(newUser);
