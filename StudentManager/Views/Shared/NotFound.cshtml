@@ -1,6 +1,53 @@
 ﻿@{
     ViewData["Title"] = "Page Not Found";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
-<h1>Page Not Found</h1>
-<p>Sorry, the page you are looking for does not exist.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/404notfound.css" />
+    <title>404 Not Found Page</title>
+    <style>
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+            .footer a {
+                display: inline-block;
+                background-color: #F36E21;
+                color: #FFFFFF;
+                padding: 10px 20px;
+                text-decoration: none;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+
+                .footer a:hover {
+                    background-color: #D2CBDB;
+                }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>404</h1>
+            <h3>Page Not Found!</h3>
+        </div>
+        <img src="~/images/bg.jpg" alt="not found" />
+        <div class="footer">
+            <p>
+                We're sorry, the page you requested could not be found. Please go back
+                to the homepage!
+            </p>
+            <a asp-controller="Login" asp-action="Index">GO LOGIN</a>
+        </div>
+    </div>
+</body>
+</html>

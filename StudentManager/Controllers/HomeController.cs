@@ -7,7 +7,7 @@ using System.Security.Claims;
 
 namespace StudentManager.Controllers
 {
-    [Authorize]
+    [ServiceFilter(typeof(RoleAuthorize))]
     public class HomeController : Controller
     {
         private readonly IStudentService _studentService;
@@ -23,15 +23,19 @@ namespace StudentManager.Controllers
 
         public IActionResult Index()
         {
-            var studentCount = _studentService.GetStudentCount();
-            var courseCount = _courseService.GetCourseCount();
-            var userscount = _userService.GetUsersCount();
+          
 
-            ViewBag.StudentCount = studentCount;
-            ViewBag.CourseCount = courseCount;
-            ViewBag.UserCount = userscount;
+                var studentCount = _studentService.GetStudentCount();
+                var courseCount = _courseService.GetCourseCount();
+                var userscount = _userService.GetUsersCount();
 
-            return View();
+                ViewBag.StudentCount = studentCount;
+                ViewBag.CourseCount = courseCount;
+                ViewBag.UserCount = userscount;
+
+                return View();
+            
+           
         }
 
 

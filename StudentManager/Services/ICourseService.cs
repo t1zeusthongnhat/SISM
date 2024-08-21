@@ -14,5 +14,7 @@ namespace StudentManager.Services
         int CountCourse();
         List<Course> SearchCourses(string keyword);
         List<Course> GetCoursesPaged(int pageNumber, int pageSize);
+
+      
     }
 }

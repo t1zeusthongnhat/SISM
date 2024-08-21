@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5MHmFgJZeyeTRrOqWtyD4NWxnUean33zL+Wd0Yg328A=",
+  "Hash": "DNH/V4gRnESC/i3ag+vbJvkot3J2Lglg27giyDmd6fE=",
   "Source": "StudentManager",
   "BasePath": "_content/StudentManager",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "E:\\ASP.NET_MVC\\SISM\\StudentManager\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\StudentManager.bundle.scp.css"
+    },
+    {
+      "Identity": "E:\\ASP.NET_MVC\\SISM\\StudentManager\\wwwroot\\css\\404notfound.css",
+      "SourceId": "StudentManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\ASP.NET_MVC\\SISM\\StudentManager\\wwwroot\\",
+      "BasePath": "_content/StudentManager",
+      "RelativePath": "css/404notfound.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\404notfound.css"
     },
     {
       "Identity": "E:\\ASP.NET_MVC\\SISM\\StudentManager\\wwwroot\\css\\site.css",
@@ -110,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "E:\\ASP.NET_MVC\\SISM\\StudentManager\\wwwroot\\images\\bg.jpg",
+      "SourceId": "StudentManager",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\ASP.NET_MVC\\SISM\\StudentManager\\wwwroot\\",
+      "BasePath": "_content/StudentManager",
+      "RelativePath": "images/bg.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\bg.jpg"
     },
     {
       "Identity": "E:\\ASP.NET_MVC\\SISM\\StudentManager\\wwwroot\\images\\LogoBTEC-1.png",

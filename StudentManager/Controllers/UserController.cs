@@ -3,10 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using StudentManager.Models;
 using StudentManager.Services;
 using StudentManager.Services.Imp;
+using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 
 namespace StudentManager.Controllers
 {
-    [Authorize]
+    [ServiceFilter(typeof(RoleAuthorize))]
     public class UserController : Controller
     {
 

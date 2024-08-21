@@ -27,45 +27,43 @@ namespace StudentManager.Controllers
         {
             if (email == null)
             {
+
+                
                 var user = _userService.GetUser(username);
 
                 if (user != null && user.Password == password)
                 {
+                    HttpContext.Session.SetString("SessionRole", user.Role);
+                    HttpContext.Session.SetString("SessionStatus", user.Status);
+                    var role = HttpContext.Session.GetString("SessionRole");
+                    var status = HttpContext.Session.GetString("SessionStatus");
+
                     if (user.Status == "Active")
                     {
-                        // Create authentication cookie
-                        var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, user.Username),
-                    new Claim(ClaimTypes.Role, user.Role)
-                };
+                        TempData["success"] = "Login successful!";
 
-                        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                        var authProperties = new AuthenticationProperties
+                        if (role == "Admin")
                         {
-                            IsPersistent = true // Remains across sessions
-                        };
-
-                        HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
+                            return RedirectToAction("Index", "Home");
+                        }
+                        else if (role == "Student")
+                        {
+                            return RedirectToAction("onlyViewStudent", "Student");
+                        }
+                       
 
                         TempData["success"] = "Login successful!";
 
                         // Redirect based on role
-                        if (user.Role == "Admin")
-                        {
-                            return RedirectToAction("Index", "Home");
-                        }
-                        else if (user.Role == "Student" || user.Role == "Teacher")
-                        {
-                            return RedirectToAction("onlyViewStudent", "Student");
-                        }
+                       
                     }
-                    else if (user.Status == "Deactive")
+                    else if (status == "Deactive")
                     {
                         TempData["error"] = "Your account has been locked!";
                         return View();
                     }
                 }
+
 
                 TempData["error"] = "Incorrect login information.";
                 return View();
@@ -104,7 +102,7 @@ namespace StudentManager.Controllers
         [HttpPost]
         public IActionResult Logout()
         {
-            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            HttpContext.Session.Clear();
             TempData["success"] = "Logged out successfully!";
             return RedirectToAction("Index");
         }

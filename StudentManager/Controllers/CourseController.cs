@@ -8,15 +8,16 @@ using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 
 namespace StudentManager.Controllers
 {
-    [Authorize]
+    [ServiceFilter(typeof(RoleAuthorize))]
     public class CourseController : Controller
     {
-
+        
         private ICourseService _courseService;
         public CourseController(ICourseService courseService)
         {
             _courseService = courseService;
         }
+
 
         public IActionResult onlyViewCourse(int pageNumber = 1, int pageSize = 4)
         {
@@ -31,6 +32,7 @@ namespace StudentManager.Controllers
         }
         public IActionResult Index(int pageNumber = 1, int pageSize = 4)
         {
+            
             var courses = _courseService.GetCoursesPaged(pageNumber, pageSize);
             var totalCourse = _courseService.GetCourseCount();
             var totalPages = (int)Math.Ceiling((double)totalCourse / pageSize);

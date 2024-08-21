@@ -1,8 +1,7 @@
-﻿
-
-using StudentManager.Services.Imp;
+﻿using StudentManager.Services.Imp;
 using StudentManager.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using StudentManager.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +11,7 @@ builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
     options.Cookie.Name = ".AdventureWorks.Session";
-    options.IdleTimeout = TimeSpan.FromSeconds(10);
+    options.IdleTimeout = TimeSpan.FromSeconds(40);
     options.Cookie.IsEssential = true;
 });
 builder.Services.AddHttpContextAccessor();
@@ -25,19 +24,19 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.AccessDeniedPath = "/Login";
     });
 
-// Đăng ký UserService
+// Register UserService
 builder.Services.AddTransient<IUserService, UserService>();
 
-// Đăng ký StudentService
+// Register StudentService
 builder.Services.AddScoped<IStudentService, StudentService>();
 
-// Đăng ký CourseService
+// Register CourseService
 builder.Services.AddScoped<ICourseService, CourseService>();
 
+// Register RoleAuthorize
+builder.Services.AddScoped<RoleAuthorize>();
 
 var app = builder.Build();
-
-
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -57,7 +56,6 @@ app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
-    
     pattern: "{controller=Login}/{action=Index}/{id?}");
 
 app.Run();

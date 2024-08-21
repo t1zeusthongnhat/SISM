@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\StudentManager.bundle.scp.css"
     },
     {
+      "Id": "E:\\ASP.NET_MVC\\SISM\\StudentManager\\wwwroot\\css\\404notfound.css",
+      "PackagePath": "staticwebassets\\css\\404notfound.css"
+    },
+    {
       "Id": "E:\\ASP.NET_MVC\\SISM\\StudentManager\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -19,6 +23,10 @@
     {
       "Id": "E:\\ASP.NET_MVC\\SISM\\StudentManager\\wwwroot\\images\\LogoBTEC-1.png",
       "PackagePath": "staticwebassets\\images\\LogoBTEC-1.png"
+    },
+    {
+      "Id": "E:\\ASP.NET_MVC\\SISM\\StudentManager\\wwwroot\\images\\bg.jpg",
+      "PackagePath": "staticwebassets\\images\\bg.jpg"
     },
     {
       "Id": "E:\\ASP.NET_MVC\\SISM\\StudentManager\\wwwroot\\images\\pngegg.png",
